@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	
+	<title>Website</title>
+	<style>
+		body {
+			background-color: #111415;
+		}
+		
+		.wth {
+			color: #FFFFFF;
+			text-align: center;
+		}
+		
+		.accordion-body {
+			color: white;
+		}
+		
+		.accordion-button {
+			color: white;
+		}
+		
+		.footer {
+			color: white;
+		}
+		
+		.card2 {
+			margin-top: 1200px;
+		}
+	</style>
+  </head>
+  
+  <body>
+	<div class="container">
+	<script>
+		$(document).ready(function() {
+			document.getElementById("projectsform").style.display = "none";
+			document.getElementById("trashlauncherform").style.display = "none";
+			<!-- document.getElementById("trashlauncherscreenhotsform").style.display = "none"; -->
+			document.getElementById("changelogform").style.display = "none";
+			
+			$('[data-toggle="tooltip"]').tooltip()
+		});
+	</script>
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Site</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="lol nav-item">
+          <a class="nav-link active" aria-current="page" data-bs-toggle="tooltip" data-bs-html="true" title="What for the site was created" href="#">About the site</a>
+		  <script>
+			$("nav").find("li", "lol").on("click", "a", function () {
+				document.getElementById("mainform").style.display = "block";
+				document.getElementById("projectsform").style.display = "none";
+				document.getElementById("trashlauncherscreenhotsform").style.display = "none";
+				document.getElementById("changelogform").style.display = "none";
+			});
+		  </script>
+        </li>
+        <li class="kek nav-item">
+          <a class="nav-link" data-bs-toggle="tooltip" data-bs-html="true" data-toggle="tooltip" data-placement="top" title="Full project history" href="#">History</a>
+		  <script>
+			$("nav").find("li", "kek").on("click", "a", function () {
+				document.getElementById("projectsform").style.display = "block";
+				document.getElementById("mainform").style.display = "none";
+				document.getElementById("trashlauncherform").style.display = "none";
+				document.getElementById("cardtrash").style.display = "none";
+				document.getElementById("trashlauncherscreenhotsform").style.display = "none";
+				document.getElementById("changelogform").style.display = "none";
+			});
+		  </script>
+        </li>
+        <!-- <li class="nzmh nav-item"> -->
+          <!-- <a class="nav-link" data-bs-toggle="tooltip" data-bs-html="true" title="Found a bug? Click here" href="#">Contacts</a> -->
+		  <!-- <script> -->
+			<!-- $("nav").find("li", "nzmh").on("click", "a", function () { -->
+				<!-- document.getElementById("contactsform").style.display = "block"; -->
+				<!-- document.getElementById("usedshitform").style.display = "none"; -->
+				<!-- document.getElementById("mainform").style.display = "none"; -->
+				<!-- document.getElementById("projectsform").style.display = "none"; -->
+			<!-- }); -->
+		  <!-- </script> -->
+        <!-- </li> -->
+		<!-- <li class="kzxm nav-item"> -->
+          <!-- <a class="nav-link" data-bs-toggle="tooltip" data-bs-html="true" title="" href="#">Soon...</a> -->
+		  <!-- <script> -->
+			<!-- $("nav").find("li", "kzxm").on("click", "a", function () { -->
+				<!-- alert("Boostrap (Engine and Components of site) \n HTML, CSS, JS (The rest) "); -->
+			<!-- }); -->
+		  <!-- </script> -->
+        <!-- </li> -->
+		<li class="bnxm nav-item">
+          <a class="nav-link" data-bs-toggle="tooltip" data-bs-html="true" data-toggle="tooltip" data-placement="top" title="Information about launcher" href="#">TrashLauncher</a>
+		  <div class="dropdown">
+		  <script>
+			$("nav").find("li", "bnxm").on("click", "a", function () {
+				document.getElementById("trashlauncherform").style.display = "block"; 
+				document.getElementById("mainform").style.display = "none";
+				document.getElementById("projectsform").style.display = "none";
+				document.getElementById("trashlauncherscreenhotsform").style.display = "none";
+				document.getElementById("changelogform").style.display = "none";
+			});
+		  </script>
+        </li>
+		<li class="nzmh nav-item">
+          <a class="nav-link" data-bs-toggle="tooltip" data-bs-html="true" data-toggle="tooltip" data-placement="top" title="Here you can see the changes on the site" href="#">Changelog</a>
+		  <script>
+			$("nav").find("li", "nzmh").on("click", "a", function () {
+				document.getElementById("changelogform").style.display = "block";
+				document.getElementById("mainform").style.display = "none";
+				document.getElementById("projectsform").style.display = "none";
+				document.getElementById("trashlauncherform").style.display = "none";
+				document.getElementById("cardtrash").style.display = "none";
+				<!-- document.getElementById("trashlauncherscreenhotsform").style.display = "none"; -->
+			});
+		  </script>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Winter 2021 <span class="badge rounded-pill bg-secondary">Soon..</span></a>
+		</li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main" id="mainform">
+	<h2 class="wth font-weight-light">About the site</h2>
+	
+	<p class="wth font-weight-light">Hi there, I'm Vitaly 16 year old student</p>
+	<p class="wth font-weight-light">I decided to create this website because i was bored</p>
+
+	<p class="wth font-weight-light">There will be a history of projects, such as the year when this project was created, and what month/year was discounted for</p>
+	<p class="wth font-weight-light">The plans about "Winter 2021" you'll see either at the end of the autumn or in December 2021, by this time this section will be available</p></p>
+	<p class="wth font-weight-light">There's changelog where you can see the changes of site</p>
+	<p class="wth font-weight-light">Coming soon in <a href="#" class="link-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Soon..">Winter</a></p>
+</div>
+
+<div class="projects" id="projectsform">
+	<br>
+	<h2 class="wth font-weight-light">History of projects</h2>
+	<br>
+
+	<div class="accordion bg-dark" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        DevelStudio (2017-2020)
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse bg-gray collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body ">
+		History.<br>
+		<br>2017<br>
+        <code>PHP DevelStudio</code> was the first "IDE" where i started to learn programming
+		<br>That "IDE" used PHP as programming language
+		<br>The first time when i've heard about <code>PHP DevelStudio</code> it was like the beginning of the 2017
+		<br>Seeing how easy it is to create a program (which can, however, can be easily decompiled)
+		<br>I was thinking to create a few programs
+		<br>I forgot about <code>PHP DevelStudio</code> until November 2017, i was decompiled the first program
+		<br>On 1th December 2017, i was thinking to create launcher, and i made a few updates and gave it up
+		
+		<br>
+		<br>
+		The rising.<br>
+		<br>2018<br>
+		
+		<br>In the beginning of 2018 like January, i've created <code>Calculator</code>, <code>Task Manager</code> (that can only kill process though), <code>Base64 Encoder/Decoder</code>, and i've created <code>Unlocker</code>
+		<br>In the summer of 2018, i've created the first decompiler <code>VDecompiler</code> that decompiles basic sections
+		<br>In the autumn of 2018, i've created another decompiler, but he could decompile Protectors, except for specific
+		<br>In the middle autumn 2018, i've created <code>VDecompiler 2.0</code> and i've learned a lot about DevelStudio Protection
+		<br>In October 2018, i've created "obfuscator" program that was replacing strings to "IIIIIII", or "OOOOOOOO", "eval(base64_decode("
+		<br>In the end of 2018, i've created "useless" the program that was used to test something (i can't remember)
+		<br>It was the end of 2018, i was thinking what to create, and it was <code>TrashLauncher 2.0</code> (i still didn't know how to write a program completely and took a lot from the internet)
+		
+		<br>
+		<br>
+		The start to falling.<br>
+		<br>2019<br>
+		
+		<br>Can't say what happened in the beginning of 2019 and middle 2019
+		<br>In the summer of 2019, i've created TrashLauncher 2.0, but he had a lot of bugs, and his protection was not a good
+		<br>In the end of 2019, and as always i've created <code>TrashLauncher 2.0</code> (I don't know what for i've created him then)
+		
+		<br>
+		<br>
+		The falling.<br>
+		<br>2020<br>
+		<br>Starting from this year i got how do i can decompile any program that was made by <code>PHP DevelStudio</code>
+		<br>The year when i decided to leave <code>PHP DevelStudio</code> compelety, because community were switching to <code>DevelNext</code> or change to the other programming language
+		<br>And then i've learned Java, so i can write programs on Java
+		<br>In the end of 2020, i've created <code>TrashLauncher 2.0</code> (UPD: There's a new launcher called <code>TrashLauncher 2.0</code> written using C# + C++)
+		<br>
+		
+		<br>Status of projects: Calculator: <b>Discounted: 2018.02 (2018/2)</b>, Task Manager: <b>Discounted: 2018.02 (2018/2)</b>, Base64 Encoder/Decoder: <b>Discounted: 2018.02 (2018/2)</b>, Unlocker: <b>Discounted: 2018.01 (2018/1)</b> VDecompiler: <b>Discounted: 2018.10 (2018/10)</b>, VDecompiler 2.0: <b>Discounted: 2018.10 (2018/10)</b>, TrashLauncher 2017: <b>Discounted: 03.12.2017</b>, Useless: <b>Discounted: 2018.12 (2018/12) </b>TrashLauncher 2018: <b>Discounted: 31.12.2018 </b>, TrashLauncher 2019: <b>Discounted: 2019.12 (2019/12)</b>
+		<br><b>Note: The history is not full, it will be supplemented over time</b>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        DevelNext (2018-2020)
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        History.<br>
+		<br>
+		
+		2018
+		<br>I tried <code>DevelNext</code> in January 2018, as usual i didn't know how to write a little complex program than hello world (lol)
+		<br>For sure, <code>DevelNext</code> is definitely better than <code>PHP DevelStudio</code> at compiling the classes to bytecode thereby making almost impossible to decompile the code (There was one decompiler, but he doesn't work since <code>DevelNext</code> added protection)
+		<br>In spring 2018, i've created <code>Calculator 2.0</code> with a new interface and he was supported cross-platform running (you could run him on Windows, Linux, MacOS)
+		<br>In summer 2018 or so, i've learned a lot about <code>DevelNext</code> (History, Syntax, Protection, Compiling, Ui)
+		<br>The following is not without <code>TrashLauncher</code> that was created on DevelNext with a new dark interface and a good protection from decompilers
+		<br>TrashLauncher existed until the end of 2018
+	
+		<br>
+		<br>Status of projects: Calculator 2.0: <b>Discounted: 2018.03 (2018/3)</b>, TrashLauncher: <b>Discounted: 2018.12 (2018/12)</b>
+      </div>
+    </div>
+  </div>
+  
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFive">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+		RAD Studio (2018-2020)
+      </button>
+    </h2>
+    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        It could have been a good IDE for creating cross-platform programming, but i didn't like syntax
+      </div>
+    </div>
+  
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+		C++ (2018-20??)
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+		I used to Java as a main language, but since 2021 C# is my favorite for creating GUI-Apps
+      </div>
+    </div>
+	
+	<h2 class="accordion-header" id="headingFour">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+		Java (2018-20??)
+      </button>
+    </h2>
+    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+		History.<br>
+		<br>2018
+		<br>
+		
+		<br>The first seriously programming language 
+		<br>In the beginning of 2018, i got an idea to create a lot programs on Java, but i barely knew Java to create them
+		<br>In spring or summer, i've created <code>Calculator</code> with console interface, and a lot that was useful only to me to continue learning Java
+		<br>In the end of 2018, i was planned to continue learning Java
+		
+		<br>
+		<br>2019
+		<br>I don't remember what i did then
+		
+		<br>
+		<br>2020
+		<br>The whole year i've been learning Java
+		<br>And in the end of 2020, i've created <code>TrashLauncher 2.0</code> the launcher no longer receives updates and was discounted because of the rewriting of the launcher
+		<br>
+		<br>Status of projects: Calculator: <b>Discounted: 2018.02 (2018/2)</b>, programs that were useful only to me: <b>Discounted: 2018.12 (2018/12)</b>, TrashLauncher 2.0: <b>Discounted: 2021.02 (2021/2)</b>
+	</div>
+    </div>
+	
+	<h2 class="accordion-header" id="headingFifteen">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifteen" aria-expanded="false" aria-controls="collapseFifteen">
+		C# (2021-20??)
+      </button>
+    </h2>
+    <div id="collapseFifteen" class="accordion-collapse collapse" aria-labelledby="headingFifteen" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+		History.
+		<br>
+		<br>2021
+		<br>
+		<br>in January 2021	i was thinking to redesign the launcher, because he looked like a program from 2000-2009 and the launcher was compelety written on Java (Terrible perfomance, memory consumption)
+		<br>So i thought it would be better to rewrite the launcher, i started to rewrite the whole launcher from the scratch
+		<br>With this language i have created TrashLauncher 2.0 with a dark theme and user-friendly GUI, it became a good idea tbh
+		<br>When i changed from Java to C#, i managed to make a modern interface (After this Swing was a garbage to me)
+		<br>
+		<br>Status of projects: TrashLauncher 2.0: <b>Active</b>
+	</div>
+    </div>
+	
+	<h2 class="accordion-header" id="headingSixteen">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen">
+		? (????-????)
+      </button>
+    </h2>
+    <div id="collapseSixteen" class="accordion-collapse collapse" aria-labelledby="headingSixteen" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+		In unspecified time there will be a history and much more
+		<br>
+		<br>????
+		<br>
+		<br>Waiting for his hour
+		<br>
+	</div>
+    </div>
+	
+	<h2 class="accordion-header" id="headingSeventeen">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeventeen" aria-expanded="false" aria-controls="collapseSeventeen">
+		Conclusion
+      </button>
+    </h2>
+    <div id="collapseSeventeen" class="accordion-collapse collapse" aria-labelledby="headingSeventeen" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+		Conclusion.
+		<br>
+		<br>2021
+		<br>
+		<br>Yeah, there were many of projects/ideas(for them) that were useful at the time, but by this time they useless
+		<br>In the end remained: C#, C++ and (infrequent one) Java (There's a possibility that i'll stop use Java)
+		<br>I could have also create a new project on previous IDEs, but i won't
+	</div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="changelogshit text-center" id="changelogform"> 
+	<br>
+	<h2 class="wth font-weight-light">Changelog of the site </h2>
+	<br>
+	
+	<p class="wth font-weight-light">From this point on, the changelog begins (13.03.2021): </p>
+	<p class="wth font-weight-light">+ Added (About the site, History, TrashLauncher, Changelog, Winter 2021) </p>
+	<p class="wth font-weight-light">+ Сreated an accordion in the "History" </p>
+	<p class="wth font-weight-light">+ Filled the accordion in the "History" </p>
+	<p class="wth font-weight-light">+ Added the section "TrashLauncher" where you can download TrashLauncher for Windows or Android </p>
+	<p class="wth font-weight-light">+ Added the "Copyright" at the bottom of the site </p>
+	<p class="wth font-weight-light">+ Added a toast that says "Welcome to the site" everytime you open the site</p>
+	<p class="wth font-weight-light">+ Added a button "Report a bug" where you could send a bug, but the button "Report Problem" isn't working at the moment </p>
+	<p class="wth font-weight-light">+ Added a changelog where you can see how the site has changed </p>
+	<p class="wth font-weight-light">+ Added the section "Conclusion" in the accordion </p>
+	<p class="wth font-weight-light">+ Slightly edited "About the site" section </p>
+	
+	<p class="wth font-weight-light"><b style="font-weight: 600;">Note: The site wasn't created from 13.03.2021, it was created on 30.01.2021 </b></p>
+</div>
+
+<!-- <div class="trashlauncherscreenhots text-center" id="trashlauncherscreenhotsform"> -->
+	<!-- <br> -->
+	<!-- <h2 class="wth font-weight-light">TrashLauncher screenshots (BETA):</h2> -->
+	<!-- <br> -->
+<!-- </div> -->
+
+<div class="trashlaunchershit text-center" id="trashlauncherform"> 
+	<br>
+	<h2 class="wth font-weight-light">Select the version of TrashLauncher: </h2>
+<div class="card-deck" id="cardtrash">
+	<div class="row">
+	<div class="col-sm-6">
+    <div class="card bg-dark border-primary" style="width: 18rem;">
+  <img src="images/background.jpg" class="card-img-top" alt="">
+  <div class="card-body">
+    <h5 class="card-title" style="color: white;">TrashLauncher for Windows</h5>
+    <p class="card-text" style="color: white;">This version of launcher is running on Windows-only</p>
+	<p class="card-text" style="color: white;">The launcher was written using C# & C++ and has user-friendly GUI with a dark theme</p>
+    <!-- <a href="#" class="btn btn-primary dropdown-toggle" id="dropdownMenuButton" data-toggle="tooltip" data-placement="top" title="What are you waiting for? -->
+	<!-- Click here." data-bs-toggle="dropdown" aria-expanded="false">Get the launcher!</a> -->	
+</nav>
+	<div class="dropdown">
+	  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+		Get the launcher
+	  </button>
+	
+  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
+    <li><a class="dropdown-item active" href="#" id="download">Download</a></li>
+    <li><a class="dropdown-item" href="#" id="screenhots">Screenshots</a></li>
+	<script>
+		$(document).ready(function() {
+			document.getElementById("trashlauncherform").style.display = "none";
+			document.getElementById('screenhots').addEventListener("click", function() {
+				<!-- document.getElementById("trashlauncherscreenhotsform").style.display = "block"; -->
+				document.getElementById("cardtrash").style.display = "none";
+				document.getElementById("lols").style.display = "none";
+			});
+		});
+	</script>
+    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2">System requirements</a></li>
+	
+    <!-- <li><hr class="dropdown-divider"></li> -->
+    <!-- <li><a class="dropdown-item" href="#">Separated link</a></li> -->
+  </ul>
+</div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog border-primary">
+    <div class="modal-content bg-dark">
+      <div class="modal-header bg-dark">
+        <h5 class="modal-title text-white" id="exampleModalLabel">System requirements</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-white">
+        To run the launcher you'll need:
+		<br>
+		Windows: 7, 8.1, 10
+		<br>Libraries: .Net 4.8, Visual C++ 2005-2019
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog border-primary">
+    <div class="modal-content bg-dark">
+      <div class="modal-header bg-dark">
+        <h5 class="modal-title text-white" id="exampleModalLabel">System requirements</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-white">
+        To run the launcher you'll need:
+		<br>
+		Android: 5.1+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="col-sm-6">
+<div class="card bg-dark border-success" style="width: 18rem;">
+  <img src="images/background.jpg" class="card-img-top" alt="">
+  <div class="card-body">
+    <h5 class="card-title" style="color: white;">TrashLauncher for Android</h5>
+    <p class="card-text" style="color: white;">This version of launcher is running on Android-only</p>
+	<p class="card-text" style="color: white;">The launcher was written using Java and has user-friendly GUI with a dark theme</p>
+    <div class="dropdown">
+	  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+		Get the launcher
+	  </button>
+	
+  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
+    <li><a class="dropdown-item active" href="#">Download</a></li>
+    <li><a class="dropdown-item" href="#">Screenshots</a></li>
+    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal3">System requirements</a></li>
+    <!-- <li><hr class="dropdown-divider"></li> -->
+    <!-- <li><a class="dropdown-item" href="#">Separated link</a></li> -->
+  </ul>
+</div>
+  </div>
+  </div>
+</div>
+</div>
+
+<div aria-live="polite" aria-atomic="true" class="bottom-0 end-0 w-100"> <!-- d-flex justify-content-center align-items-center -->
+
+  <div class="toast bg-dark" style="position: absolute; bottom: 0; right: 0;" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header bg-dark">
+      <strong class="me-auto">Notification</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body bg-dark text-white">
+      Welcome to the site
+    </div>
+  </div>
+</div>
+
+<!-- <div class="card2 bg-dark0" style="width: 18rem; margin-left: 420px; margin-top: 0.5rem;"> -->
+  <!-- <img src="images/java.jpg" class="card-img-top" alt=""> -->
+  <!-- <div class="card-body"> -->
+    <!-- <h5 class="card-title" style="color: white;">TrashLauncher for Desktop</h5> -->
+    <!-- <p class="card-text" style="color: white;">This version of launcher is running on Windows, Linux, MacOS</p> -->
+	<!-- <p class="card-text" style="color: white;">The launcher was written using Java and has GUI mode</p> -->
+    <!-- <a href="#" class="btn btn-primary">Download</a> -->
+  <!-- </div> -->
+<!-- </div> -->
+</div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog bg-primary">
+    <div class="modal-content bg-dark">
+      <div class="modal-header bg-dark">
+        <h5 class="modal-title text-white" id="exampleModalLabel">Report a problem here</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body bg-dark text-white">
+        
+<div class="input-group mb-3" id="form">
+  <div class="input-group-prepend">
+    <span class="input-group-text bg-dark text-white border-primary" id="basic-addon1">@</span>
+  </div>
+  <input type="email" class="form-control bg-dark text-white border-primary" placeholder="example.com" aria-label="@example.com" aria-describedby="basic-addon1">
+</div>
+
+<div class="input-group">
+  <textarea type="text" class="form-control bg-dark border-primary text-white" placeholder="Describe here feedback or problem" aria-label="With textarea"></textarea>
+</div>
+      </div>
+      <div class="modal-footer bg-dark">
+		<button type="button" class="btn btn-success" id="liveToastBtn">Report Problem</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $(".toast").toast('show');
+    });
+</script>
+
+<div aria-live="polite" aria-atomic="true" class="bottom-0 end-0 w-100"> <!-- d-flex justify-content-center align-items-center -->
+
+  <div class="toast bg-dark" style="position: absolute; bottom: 0; right: 0;" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header bg-dark">
+      <strong class="me-auto">Notification</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body bg-dark text-white">
+      Welcome to the site
+    </div>
+  </div>
+</div>
+<footer>
+	<p class="footer text-right"></p>
+  
+	<div class="d-none d-lg-block">
+	<div class="alert alert-light bg-dark text-center border-primary " style="width:1145px; margin-left: 110px; margin-top: 235px;" role="alert">
+	@ 2021 Made by <a href="#" class="link-primary">0x6k7</a>
+	<button type="button" class="btn btn-outline-primary ml-4" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-toggle="tooltip" data-bs-html="true" data-toggle="tooltip" data-placement="top" title="<b>Doesn't work</b>">
+  Report a bug
+</button>
+	</div>
+	</div>
+	
+	<div class="d-none d-sm-block d-md-none">
+		<div class="alert alert-light bg-dark text-center border-primary " style="width:530px; margin-left: 40px; margin-top: 155px;" role="alert">
+		@ 2021 Made by <a href="#" class="link-primary">0x6k7</a>
+		<button type="button" class="btn btn-outline-primary ml-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Report a bug
+</button>
+		</div>
+	</div>
+	
+	<div class="d-block d-sm-none">
+		<div class="alert alert-light bg-dark text-center border-primary" style="width:355px; margin-left: 10px; margin-top: 310px;" role="alert">
+		@ 2021 Made by <a href="#" class="link-primary">0x6k7</a>
+		</div>
+	</div>
+<footer> 
+	
+  </body>
+</html>
