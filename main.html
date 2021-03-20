@@ -417,8 +417,7 @@
 	  </button>
 	
   <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
-    <li><a class="dropdown-item active" href="#" id="download">Download</a></li>
-	<a href="0x6k7.github.io/TrashLauncher.zip" download>
+    <li><a class="dropdown-item active" href="#" id="download" data-bs-toggle="modal" data-bs-target="#exampleModal4">Download</a></li>
     <li><a class="dropdown-item" href="#" id="screenhots">Screenshots</a></li>
 	<script>
 		$(document).ready(function() {
@@ -457,6 +456,24 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog border-primary">
+    <div class="modal-content bg-dark">
+      <div class="modal-header bg-dark">
+        <h5 class="modal-title text-white" id="exampleModalLabel">Download launcher</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-white">
+        Download launcher: https://0x6k7.github.io/TrashLauncher.zip
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog border-primary">
@@ -566,7 +583,7 @@
   
 	<div class="d-none d-lg-block">
 	<div class="alert alert-light bg-dark text-center border-primary " style="width:1145px; margin-left: 110px; margin-top: 235px;" role="alert">
-	@ 2021 Made by <a href="#" class="link-primary" id="nickname">0x6k7</a>
+	@ 2021 Made by <a href="#" class="link-primary">0x6k7</a>
 	<button type="button" class="btn btn-outline-primary ml-4" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-toggle="tooltip" data-bs-html="true" data-toggle="tooltip" data-placement="top" title="<b>Doesn't work</b>">
   Report a bug
 </button>
