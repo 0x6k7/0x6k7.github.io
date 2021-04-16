@@ -40,14 +40,12 @@
 		}
 	</style>
   </head>
-  
   <body>
 	<div class="container">
 	<script>
 		$(document).ready(function() {
 			document.getElementById("projectsform").style.display = "none";
 			document.getElementById("trashlauncherform").style.display = "none";
-			<!-- document.getElementById("trashlauncherscreenhotsform").style.display = "none"; -->
 			document.getElementById("changelogform").style.display = "none";
 			
 			$('[data-toggle="tooltip"]').tooltip()
@@ -109,7 +107,6 @@
 				document.getElementById("projectsform").style.display = "none";
 				document.getElementById("trashlauncherform").style.display = "none";
 				document.getElementById("cardtrash").style.display = "none";
-				<!-- document.getElementById("trashlauncherscreenhotsform").style.display = "none"; -->
 			});
 		  </script>
         </li>
@@ -124,15 +121,39 @@
 <div class="main" id="mainform">
 	<h2 class="wth font-weight-light">About the site</h2>
 	
-	<p class="wth font-weight-light">Hi there, I'm Vitaliy, a 16 year old student</p>
+	<p class="wth font-weight-light">Hi there, I'm Vitaliy, a-16-year-old student</p>
 	<p class="wth font-weight-light">I decided to create this website because i was bored</p>
 
 	<p class="wth font-weight-light">There will be a history of projects, such as the year when this project was created, and what month/year was discounted for</p>
 	<p class="wth font-weight-light">You'll see the plans for "Winter 2021" either in late fall or December 2021, by this time this section will be available</p></p>
 	<p class="wth font-weight-light">There's a changelog where you can see the changes on the site</p>
 	<p class="wth font-weight-light">If you have a problem and/or suggestion, feel free to click the "Report a bug" button</p>
-	<p class="wth font-weight-light">Coming soon in <a href="#" class="link-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Soon..">Winter</a></p>
-	<p class="wth font-weight-light">Build: 4/8/2021</p>
+	<p class="wth font-weight-light">Winter is not soon</p>
+	<p class="wth font-weight-light" id="date"></p>
+
+<script>
+var countDownDate = new Date("Dec 1, 2021 00:00:00").getTime();
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("date").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "End.";
+  }
+}, 1000);
+</script>
+	<p class="wth font-weight-light">Build: 4/16/2021</p>
 </div>
 
 <div class="projects" id="projectsform">
@@ -177,7 +198,7 @@
 		The start to falling.<br>
 		<br>2019<br>
 		
-		<br>Can't say what happened at the beginning of 2019 and middle 2019
+		<br>Can't say what happened at the beginning of 2019
 		<br>In the summer of 2019, I've created TrashLauncher 2.0, but it had many bugs, and its protection wasn't good
 		<br>In the end of 2019, and as always i've created <code>TrashLauncher 2.0</code> (I don't know what for I created it then)
 		
@@ -190,6 +211,14 @@
 		<br>And then i've learned Java, so i can write programs on Java
 		<br>In the end of 2020, i've created <code>TrashLauncher 2.0</code> (UPD: There's a new launcher called <code>TrashLauncher 2.0</code> written using C# + C++, the current one won't be rewritten)
 		<br>
+		
+		<br>
+		<br>
+		Postscript.<br>
+		<br>2021<br>
+		<br>By this time, DevelStudio is useless program without future
+		<br>A lot had changed before this
+		<br>The same relates to DevelNext
 		
 		<br>Status of projects: Calculator: <b>Discounted: 2018.02 (2018/2)</b>, Task Manager: <b>Discounted: 2018.02 (2018/2)</b>, Base64 Encoder/Decoder: <b>Discounted: 2018.02 (2018/2)</b>, Unlocker: <b>Discounted: 2018.01 (2018/1)</b> VDecompiler: <b>Discounted: 2018.10 (2018/10)</b>, VDecompiler 2.0: <b>Discounted: 2018.10 (2018/10)</b>, TrashLauncher 2017: <b>Discounted: 03.12.2017</b>, Useless: <b>Discounted: 2018.12 (2018/12) </b>TrashLauncher 2018: <b>Discounted: 31.12.2018 </b>, TrashLauncher 2019: <b>Discounted: 2019.12 (2019/12)</b>
 		<br><b>Note: The history is over. </b>
@@ -278,7 +307,10 @@
 		
 		<br>
 		<br>2019
-		<br>I can't recall what i did then
+		<br>There was an attempt to write a cheat for Minecraft
+		<br>As i recall, on July, 2019, i tried to write a cheat but i faced with many problems
+		<br>e.g There was no GUI, ClickGui, Killaura, Scaffold, Fly
+		<br>The rest was fine, but with bugs
 		
 		<br>
 		<br>2020
@@ -373,15 +405,10 @@
 	<p class="wth font-weight-light">+ Slightly improved text in the "Java" accordion </p>
 	<p class="wth font-weight-light">+ Slightly improved text in the "DevelNext" accordion </p>
 	<p class="wth font-weight-light">+ Slightly improved text in the "PHP DevelStudio" accordion </p>
+	<p class="wth font-weight-light">+ Added a timer at website </p>
 	
 	<p class="wth font-weight-light"><b style="font-weight: 600;">Note: The site wasn't created on 13.03.2021 but on 30.01.2021 </b></p>
 </div>
-
-<!-- <div class="trashlauncherscreenhots text-center" id="trashlauncherscreenhotsform"> -->
-	<!-- <br> -->
-	<!-- <h2 class="wth font-weight-light">TrashLauncher screenshots (BETA):</h2> -->
-	<!-- <br> -->
-<!-- </div> -->
 
 <div class="trashlaunchershit text-center" id="trashlauncherform"> 
 	<br>
@@ -410,7 +437,6 @@
 		$(document).ready(function() {
 			document.getElementById("trashlauncherform").style.display = "none";
 			document.getElementById('screenhots').addEventListener("click", function() {
-				<!-- document.getElementById("trashlauncherscreenhotsform").style.display = "block"; -->
 				document.getElementById("cardtrash").style.display = "none";
 				document.getElementById("lols").style.display = "none";
 			});
