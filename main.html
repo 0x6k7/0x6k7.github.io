@@ -41,12 +41,6 @@
 			color: white;
 		}
 		
-		#tags {
-			margin-left: 20px;
-			width: 185px;
-			margin-top: 5px;
-		}
-		
 		.footer {
 			color: white;
 		}
@@ -148,6 +142,7 @@
             Contacts <i class="bi bi-question-circle-fill"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+			<li><a class="dropdown-item" href="https://github.com/0x6k7/0x6k7.github.io/issues/new" data-toggle="tooltip" data-placement="top" title="You need a GitHub account">Report a bug <i class="bi bi-bug"></i> </a></li>
             <li><a class="dropdown-item" href="https://www.instagram.com/0x6k7/">Instagram <i class="bi bi-instagram"></i> </a></li>
             <li><a class="dropdown-item" href="https://www.reddit.com/user/0x6k7">Reddit <i class="fa fa-reddit"></i> </a></li>
             <li><a class="dropdown-item" href="https://t.me/memorypanic">Telegram <i class="bi bi-telegram"></i></a></li>
@@ -208,7 +203,8 @@
 		document.getElementById("time").innerHTML = getCurrentTime("Kiev", "+3")
 	</script>
 	</p>
-	<p class="wth font-weight-light" id="build">Build: 4/28/2021 7:33 AM</p>
+	<p class="wth font-weight-light" id="build">Build: 4/28/2021 8:02 AM</p>
+	<p class="wth font-weight-light" id="build">@ 2021 Made by <a href="#" class="link-primary">0x6k7</a></p>
 </div>
 
 <div class="weather text-center" id="weatherform">
@@ -516,7 +512,7 @@
 	<p class="wth font-weight-light">- Removed the links to download TrashLauncher </p>
 	<p class="wth font-weight-light">+ Added an easter egg on the site (Not working at the moment) </p>
 	<p class="wth font-weight-light">- As of 28 April, 2021, TrashLauncher is no longer supported </p>
-	<p class="wth font-weight-light">+ Since May 2021 you may clean up unnecessary sections (TrashLauncher, Changelog) </p>
+	<p class="wth font-weight-light">+ As of 28 April, 2021, you may clean up unnecessary sections (TrashLauncher, Changelog) </p>
 	<p class="wth font-weight-light">+ Added the section "Main" where you can move to the main form </p>
 	<p class="wth font-weight-light">+ Added the section "Pre-2022" more details in November/December 2021 </p>
 	<p class="wth font-weight-light">+ Added website time </p>
@@ -524,8 +520,8 @@
 	<p class="wth font-weight-light">+ Added icons to the "Weather", "Main", "History", "TrashLauncher", "Changelog", "Report a bug" "Winter 2021 & Pre-2022", and "Contacts" buttons </p>
 	<p class="wth font-weight-light">+ Added weather forecast </p>
 	<p class="wth font-weight-light">+ Added site icon </p>
-
-
+	<p class="wth font-weight-light">~ A more adapted site </p>
+	
 	<p class="wth font-weight-light"><b style="font-weight: 600;">Note: The site wasn't created on 13.03.2021 but on 30.01.2021 </b></p>
 </div>
 
@@ -568,43 +564,11 @@
   </div>
 </div>
 <footer>
-	<p class="footer text-right"></p>
-  
-	<div class="d-none d-lg-block">
-	<div class="alert alert-light bg-dark text-center border-primary " style="width:1145px; margin-left: 110px; margin-top: 235px;" role="alert">
-	@ 2021 Made by <a href="#" id="username" class="link-primary">0x6k7</a>
-	<script>
-	// Add "2022" to href in November/December 2021
-	// Uncomment this code in November/December 2021
-		<!-- $(document).ready(function() { -->
-			<!-- $("#username").on("click", function() { -->
-				<!-- document.getElementById('username').innerHTML = "2022"; -->
-				<!-- document.title = "Pre-2022" -->
-			<!-- }); -->
-		<!-- }); -->
-	</script>
-	<button type="button" class="btn btn-outline-primary ml-4" data-bs-toggle="tooltip" data-bs-placement="top" title="You need a GitHub account"><a href="https://github.com/0x6k7/0x6k7.github.io/issues/new" target="_blank" rel="noopener noreferrer">Report a bug</a> <i class="bi bi-bug" style="position: relative;"></i></button>
-	</div>
-	</div>
-	
-	<div class="d-none d-sm-block d-md-none">
-		<div class="alert alert-light bg-dark text-center border-primary " style="width:530px; margin-left: 40px; margin-top: 155px;" role="alert">
-		@ 2021 Made by <a href="#" class="link-primary">0x6k7</a>
-		<button type="button" class="btn btn-outline-primary ml-4"><a href="https://github.com/0x6k7/0x6k7.github.io/issues/new" target="_blank" rel="noopener noreferrer">Report a bug</a></button>
-		</div>
-	</div>
-	
+	<p class="footer"></p>
 	<div class="d-block d-sm-none">
 		<div class="alert alert-light bg-dark text-center border-primary" style="width:355px; margin-left: 10px; margin-top: 310px;" role="alert">
-		@ 2021 Made by <a href="#" class="link-primary">0x6k7</a>
-		<button type="button" class="btn btn-outline-primary ml-4"><a href="https://github.com/0x6k7/0x6k7.github.io/issues/new" target="_blank" rel="noopener noreferrer">Report a bug</a> <i class="bi bi-exclamation-circle" style="position: relative;"></i> </button>
-		</div>
-	</div>
-	
-	<div class="d-none d-xll-block">
-		<div class="alert alert-light bg-dark text-center border-primary" style="width:555px; margin-left: 10px; margin-top: 310px;" role="alert">
-		@ 2021 Made by <a href="#" class="link-primary">0x6k7</a>
-		<button type="button" class="btn btn-outline-primary ml-4"><a href="https://github.com/0x6k7/0x6k7.github.io/issues/new" target="_blank" rel="noopener noreferrer">Report a bug</a></button>
+		@ 2021 Made by <a href="#" contenteditable="true" class="link-primary">0x6k7</a>
+		<button type="button" class="btn btn-outline-primary ml-4"><a href="https://github.com/0x6k7/0x6k7.github.io/issues/new" target="_blank" rel="noopener noreferrer">Report a bug</a> </button>
 		</div>
 	</div>
 <footer> 
