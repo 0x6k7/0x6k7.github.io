@@ -14,7 +14,7 @@
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
-
+	
 	<link rel="shortcut icon" type="img/png" href="favicon.png"/>
 
 	<!-- <script src="https://cdn.jsdelivr.net/gh/xcash/bootstrap-autocomplete@master/dist/latest/bootstrap-autocomplete.min.js"></script> -->
@@ -44,6 +44,55 @@
 		.footer {
 			color: white;
 		}
+		
+		.profile-pic {
+			max-width: 200px;
+			max-height: 200px;
+			display: block;
+		}
+
+		.file-upload {
+			display: none;
+		}
+		
+		.circle {
+			border-radius: 1000px !important;
+			overflow: hidden;
+			width: 54px;
+			height: 54px;
+			border: 3px solid;
+			position: absolute;
+			<!-- top: 72px; -->
+			position: relative;
+			top: 1px;
+			margin-left: 80px;
+		}
+		
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+		
+		.p-image {
+			position: absolute;
+			top: 28px;
+			right: 30px;
+			color: #666666;
+			transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+		}
+
+		.p-image:hover {
+			transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+		}
+		
+		.upload-button {
+			font-size: 1.2em;
+		}
+
+		.upload-button:hover {
+			transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+			color: #999;
+		}
 	</style>
   </head>
   <body>
@@ -56,10 +105,65 @@
 			document.getElementById("changelogform").style.display = "none";
 			
 			$('[data-toggle="tooltip"]').tooltip()
+			
+			var width = screen.width;
+			
+			if (width == 1366 | width > 1366) {
+				document.getElementById("about").style.display = "block";
+			}
+			
+			else if (width == 1920) {
+				var style = document.createElement('style');
+				style.innerHTML = ".circle {position: fixed; bottom: 1px; width: 48px; height: 48px; left: 50px;}";
+				document.head.appendChild(style);
+
+				document.getElementById("upload").style.left = "1255px";
+			}
+			
+			else {
+				document.getElementById("about").style.display = "none";
+				document.getElementById("upload").style.left = "130px";
+				document.getElementById("upload").style.bottom = "10px";
+				
+				if (document.getElementById("aboutsite").innerHTML == "Про сайт") {
+					var style = document.createElement('style');
+					style.innerHTML = ".circle {position: fixed; bottom: 20px; width: 158px; height: 158px; top: 20px;}";
+					document.head.appendChild(style);
+				}
+			}
 		});
 	</script>
-</body>
-	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+	
+	<script>
+	$(document).ready(function() {
+
+    var readURL = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.profile-pic').attr('src', e.target.result);
+            }
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $(".file-upload").on('change', function(){
+        readURL(this);
+    });
+    
+    $(".upload-button").on('click', function() {
+       $(".file-upload").click();
+    });
+	
+	var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+		var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+		return new bootstrap.Popover(popoverTriggerEl)
+	})
+});
+	</script>
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark" id="navbarmenu">
   <div class="container-fluid">
     <a class="navbar-brand" id="main" href="#" data-toggle="tooltip" data-placement="top" title="Back to the main form"><i class="bi bi-arrow-left-short"></i>Main</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,6 +172,7 @@
 			$(document).ready(function() {
 				$("#main").on("click", function() {
 					document.getElementById("mainform").style.display = "block";
+					document.getElementById("weatherform").style.display = "none";
 					document.getElementById("changelogform").style.display = "none";
 					document.getElementById("projectsform").style.display = "none";
 					document.getElementById("trashlauncherform").style.display = "none";
@@ -79,7 +184,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
 		<li class="weather nav-item">
-          <a class="nav-link" data-bs-toggle="tooltip" data-bs-html="true" data-toggle="tooltip" data-placement="top" title="Get the latest information about weather" href="#">Weather <i class="bi bi-cloud"></i></a>
+          <a class="nav-link" data-bs-toggle="tooltip" data-bs-html="true" data-toggle="tooltip" data-placement="top" id="weathername" title="Get the latest information about weather" href="#">Weather <i class="bi bi-cloud"></i></a>
 		  <script>
 			$("nav").find("li", "weather").on("click", "a", function () {
 				document.getElementById("weatherform").style.display = "block"; 
@@ -101,7 +206,7 @@
 		  </script>
         </li>
         <li class="kek nav-item">
-          <a class="nav-link" data-bs-toggle="tooltip" data-bs-html="true" data-toggle="tooltip" data-placement="top" title="Full project history" href="#">History  <i class="bi bi-clock-history"> </i></a>
+          <a class="nav-link" data-bs-toggle="tooltip" data-bs-html="true" data-toggle="tooltip" data-placement="top" id="historyname" title="Full project history" href="#">History  <i class="bi bi-clock-history"> </i></a>
 		  <script>
 			$("nav").find("li", "kek").on("click", "a", function () {
 				document.getElementById("projectsform").style.display = "block";
@@ -113,7 +218,7 @@
 		  </script>
         </li>
 		<li class="bnxm nav-item">
-          <a class="nav-link" data-bs-toggle="tooltip" data-bs-html="true" data-toggle="tooltip" data-placement="top" title="Information about launcher" href="#">TrashLauncher <i class="bi bi-trash"></i></a>
+          <a class="nav-link" data-bs-toggle="tooltip" data-bs-html="true" data-toggle="tooltip" data-placement="top" id="trashlaunchername" title="Information about launcher" href="#">TrashLauncher <i class="bi bi-trash"></i></a>
 		  <div class="dropdown">
 		  <script>
 			$("nav").find("li", "bnxm").on("click", "a", function () {
@@ -126,7 +231,7 @@
 		  </script>
         </li>
 		<li class="nzmh nav-item">
-          <a class="nav-link" data-bs-toggle="tooltip" data-bs-html="true" data-toggle="tooltip" data-placement="top" title="Here you can see the changes on the site" href="#">Changelog <i class="bi bi-newspaper"></i></a>
+          <a class="nav-link" data-bs-toggle="tooltip" data-bs-html="true" data-toggle="tooltip" data-placement="top" id="changelogname" title="Here you can see the changes on the site" href="#">Changelog <i class="bi bi-newspaper"></i></a>
 		  <script>
 			$("nav").find("li", "nzmh").on("click", "a", function () {
 				document.getElementById("changelogform").style.display = "block";
@@ -142,32 +247,240 @@
             Contacts <i class="bi bi-question-circle-fill"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-			<li><a class="dropdown-item" href="https://github.com/0x6k7/0x6k7.github.io/issues/new" data-toggle="tooltip" data-placement="top" title="You need a GitHub account">Report a bug <i class="bi bi-bug"></i> </a></li>
-            <li><a class="dropdown-item" href="https://www.instagram.com/0x6k7/">Instagram <i class="bi bi-instagram"></i> </a></li>
-            <li><a class="dropdown-item" href="https://www.reddit.com/user/0x6k7">Reddit <i class="fa fa-reddit"></i> </a></li>
-            <li><a class="dropdown-item" href="https://t.me/memorypanic">Telegram <i class="bi bi-telegram"></i></a></li>
+			<li><a class="dropdown-item" id="github" href="https://github.com/0x6k7/0x6k7.github.io/issues/new" data-toggle="tooltip" data-placement="top" title="You need a GitHub account">Report a bug <i class="bi bi-bug"></i> </a></li>
+            <li><a class="dropdown-item" id="instagramname" href="https://www.instagram.com/0x6k7/">Instagram <i class="bi bi-instagram"></i> </a></li>
+            <li><a class="dropdown-item" id="redditname" href="https://www.reddit.com/user/0x6k7">Reddit <i class="fa fa-reddit"></i> </a></li>
+            <li><a class="dropdown-item" id="telegramname" href="https://t.me/memorypanic">Telegram <i class="bi bi-telegram"></i></a></li>
           </ul>
         </li>
+		
         <li class="nav-item">
-			<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Winter 2021 & Pre-2022 <i class="bi bi-snow"></i>  <span class="badge rounded-pill bg-secondary">Unavailable</span></a>
+			<a class="nav-link disabled" href="#" id="wintername" tabindex="-1" aria-disabled="true">Winter 2021 & Pre-2022 <i class="bi bi-snow"></i>  <span class="badge rounded-pill bg-secondary" id="badgespan">Unavailable</span></a>
 		</li>
+		
+		<div class="row" id="pic">
+			<div class="small-12 medium-2 large-2 columns">
+			<div class="circle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+			<img class="profile-pic" src="">
+		</div>
+		
+		<div class="p-image" id="upload">
+			<i class="fa fa-camera upload-button" alt="Upload an image here"></i>
+			<input class="file-upload" type="file" accept="image/*"/>
+		</div>
+		
+		<ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
+			<li><a class="dropdown-item disabled" id="signedas" href="#">Authorized as Guest</a></li>
+			<li><hr class="dropdown-divider"></li>
+			<li><a class="dropdown-item" href="#" id="bellicon" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-bell"></i> Events</a></li>
+			<li><hr class="dropdown-divider"></li>
+			<li><a class="dropdown-item" href="#" id="borderavatar"><i class="bi bi-border-all"></i> Add borders to the icon</a></li>
+			<li><a class="dropdown-item" href="#" id="deleteborder"><i class="bi bi-x-circle"></i> Delete icon borders</a></li>
+			<li><a class="dropdown-item" href="#" id="showicon"><i class="bi bi-camera-fill"></i> Show upload icon</a></li>
+			<li><a class="dropdown-item" href="#" id="hideicon"><i class="bi bi-camera"></i> Hide upload icon</a></li>
+			<li><a class="dropdown-item" href="#" id="hideprofile"><i class="bi bi-person-x"></i> Hide all</a></li>
+			
+			<li><hr class="dropdown-divider"></li>
+			
+			<select class="form-select bg-dark text-white" id="language" size="3" aria-label="size 3 example">
+				<option disabled id="English" value="English">English</option>
+				<option selected value="1" id="Ukrainian">Українська</option>
+			</select>
+			
+			<li><hr class="dropdown-divider"></li>
+			<li><a class="dropdown-item disabled" id="buildinfo" href="#"><i class="bi bi-clock"></i> Site build: 5/5/2021, 7:10 AM</a></li>
+			<li><a class="dropdown-item disabled" id="internalversion" href="#"><i class="bi bi-code-slash"></i> Internal version: #e967avc</a></li>
+
+	<script>	
+		$("#borderavatar").on("click", function () {
+			const randomColor = 
+			Math.floor(Math.random() * 16777215).toString(16);
+			document.getElementById("pic").style.color = "#" + randomColor;
+		});
+		
+		$("#deleteborder").on("click", function () {
+			if (document.getElementById("pic").style.color == "") {
+				if (document.getElementById("aboutsite").innerHTML == "Про сайт") {
+					alert("Межі іконки пусті")
+				}
+				
+				else {
+					alert("Borders of the icon are empty")
+				}
+			}
+			
+			else {
+				document.getElementById("pic").style.color = "";
+			}
+		});
+		
+		$("#showicon").on("click", function () {
+			document.getElementById("upload").style.display = "block";
+		});
+		
+		$("#hideicon").on("click", function () {
+			document.getElementById("upload").style.display = "none";
+		});
+		
+		$("#hideprofile").on("click", function () {
+			document.getElementById("pic").style.display = "none";
+		});
+
+		$("#Ukrainian").on("click", function () {
+			if (document.getElementById("aboutsite").innerHTML == "About the site") {
+				document.getElementById("main").innerHTML = 'Головна';
+			
+				document.getElementById("aboutsite").innerHTML = "Про сайт";
+				document.getElementById("aboutme").innerHTML = "Привіт, я Віталій, 16 річний студент";
+				document.getElementById("aboutme2").innerHTML = "Я вирішив створити цей сайт, тому що мені було цікаво, який саме сайт я можу зробити";
+				document.getElementById("aboutme3").innerHTML = "Буде історія проектів, які більше не підтримуються";
+				document.getElementById("aboutme4").innerHTML = "Плани на Зиму 2021 будуть доступні або в кінці осені або в Листопаді/Грудні 2021";
+				document.getElementById("aboutme5").innerHTML = "Є журнал змін, де ви можете побачити зміни на сайті";
+				document.getElementById("aboutme6").innerHTML = "Є кнопки, які дозволять видаляти непотрібні розділи";
+				document.getElementById("aboutme7").innerHTML = 'Якщо у вас є проблема і/або пропозиція, ви можете відправити мені повідомлення через секцію Контактів, або ви можете відправити інформацію про неполадку через кнопку "Повідомити про помилку"';
+				document.getElementById("aboutme8").innerHTML = "Зима не скоро, я б сказав, літо наближається"
+				document.getElementById("about").innerHTML = '@ 2021 Зроблено <a href="#" class="link-primary">0x6k7</a>';
+				
+				document.getElementById("weathername").innerHTML = "Погода <i class='bi bi-cloud'></i>";
+				document.getElementById("historyname").innerHTML = "Історія <i class='bi bi-clock-history'></i>";
+				document.getElementById("changelogname").innerHTML = "Журнал змін <i class='bi bi-newspaper'></i>";
+				document.getElementById("navbarDarkDropdownMenuLink").innerHTML = "Контакти <i class='bi bi-question-circle-fill'></i>";
+				
+				document.getElementById("github").innerHTML = "Повідомити про помилку <i class='bi bi-bug'></i>";
+				document.getElementById("instagramname").innerHTML = "Інстаграм <i class='bi bi-instagram'></i>";
+				document.getElementById("redditname").innerHTML = "Реддіт <i class='fa fa-reddit'></i>";
+				document.getElementById("telegramname").innerHTML = "Телеграм <i class='bi bi-telegram'></i>";
+				
+				document.getElementById("wintername").innerHTML = "Зима 2021 & До 2022 <i class='bi bi-snow'></i> <span class='badge rounded-pill bg-secondary'>Недоступний</span>";
+				document.getElementById("weatherforecast").innerHTML = "Прогноз погоди:";
+				document.getElementById("historyprojects").innerHTML = "Історія проектів";
+	
+				document.getElementById("clear").innerHTML = 'Очистити розділ "TrashLauncher"';
+				document.getElementById("clearr").innerHTML = 'Очистити розділ "Журнал змін"';
+				document.getElementById("clearrr").innerHTML = 'Очистити розділ "Погода"';
+				
+				document.getElementById("signedas").innerHTML = "Ви ввійшли як Гость";
+				
+				document.getElementById("exampleModalLabel").innerHTML = "Головні події року";
+				document.getElementById("eventmonth").innerHTML = "<b>Травень 2021: </b>";
+				document.getElementById("orthodoxeaster").innerHTML = "2 травня 2021 - православна Пасха в Християн";
+				document.getElementById("eventmonth2").innerHTML = "5 травня 2021 - День ангела в розробника сайту";
+				document.getElementById("eventmonth3").innerHTML = "9 травня 2021 - День перемоги";
+				document.getElementById("eventmonth4").innerHTML = "31 травня 2021 - Кінець другого семестру в школах";
+				document.getElementById("closebutton").innerHTML = "Закрити";
+				
+				document.getElementById("bellicon").innerHTML = '<i class="bi bi-bell"></i> Події';
+				document.getElementById("borderavatar").innerHTML = '<i class="bi bi-border-all"></i> Добавити межі аватарки';
+				document.getElementById("deleteborder").innerHTML = '<i class="bi bi-x-circle"></i> Видалити межі аватарки';
+				document.getElementById("showicon").innerHTML = '<i class="bi bi-camera-fill"></i> Показати значок загрузки';
+				document.getElementById("hideicon").innerHTML = '<i class="bi bi-camera"></i> Сховати значок загрузки';
+				document.getElementById("hideprofile").innerHTML = '<i class="bi bi-person-x"></i> Сховати все';
+				
+				document.getElementById("buildinfo").innerHTML = '<i class="bi bi-clock"></i> Версія сайту: 05.05.2021 7:10';
+				document.getElementById("internalversion").innerHTML = '<i class="bi bi-code-slash"></i> Внутрішня версія: #e967avc';
+
+				document.getElementById("changelogcaption").innerHTML = "Журнал змін сайту";
+				document.getElementById("alertdanger").innerHTML = 'З 28 квітня 2021, TrashLauncher більше не підтримуються. Дивіться "DevelStudio", "DevelNext", "Java", і "C#" для більшої інформації';
+		
+				document.getElementById("warning").innerHTML = 'Цей розділ не був повністью перекладений на Українську <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+		
+				document.getElementById("changelogchange").innerHTML = "Додано (Про сайт, Історія, TrashLauncher, Журнал змін, Контакти)";
+				document.getElementById("changelogchange1").innerHTML = 'Створений акордеон "Історія"';
+				document.getElementById("changelogchange2").innerHTML = 'Заповнений акордеон "Історія"';
+				document.getElementById("changelogchange3").innerHTML = "Додано розділ TrashLauncher де ви можете скачати його для Віндовс або Андроїд (Оновлено: Більше не підтримується)";
+				document.getElementById("changelogchange4").innerHTML = "Додано копірайт внизу сайту";
+				document.getElementById("changelogchange5").innerHTML = "Додано повідомлення, яке вітає Вас при заході на сайт";
+				document.getElementById("changelogchange6").innerHTML = 'Додано кнопка "Повідомити про помилку", де ви можете повідомити про пропозицію або помилку';
+				document.getElementById("changelogchange7").innerHTML = "Додано журнал змін, де ви можете побачити зміни на сайті";
+				
+				document.getElementById("changelogchangept1").innerHTML = 'Додано розділ "Висновок" в акордеоні';
+				document.getElementById("changelogchangept2").innerHTML = 'Чуть змінений розділ "Про сайт"';
+				document.getElementById("changelogchangept3").innerHTML = 'Чуть змінений розділ "Історія" в акордеоні';
+				document.getElementById("changelogchangept4").innerHTML = 'Видалений безкорисний код на сайті';
+				document.getElementById("changelogchangept5").innerHTML = 'Чуть змінений текст в акордеоні загалом"';
+				document.getElementById("changelogchangept6").innerHTML = 'Чуть змінений розділ "Java" в акордеоні';
+				document.getElementById("changelogchangept7").innerHTML = 'Чуть змінений розділ "DevelNext" в акордеоні';
+				document.getElementById("changelogchangept8").innerHTML = 'Чуть змінений розділ "PHP DevelStudio" в акордеоні';
+				
+				document.getElementById("changelogchangept9").innerHTML = 'Додано таймер на сайт';
+				document.getElementById("changelogchangept10").innerHTML = 'Замінені невідповідні слова';
+				
+				document.getElementById("changelogchangept11").innerHTML = 'Ви більше не можете скачати TrashLauncher';
+				document.getElementById("changelogchangept12").innerHTML = 'Видалені відповідні посилання на скачування TrashLauncher';
+				document.getElementById("changelogchangept13").innerHTML = 'Додана пасхалка, яка наразі не працює';
+				document.getElementById("changelogchangept14").innerHTML = 'З 28 квітня 2021, TrashLauncher більше не підтримується';
+				document.getElementById("changelogchangept15").innerHTML = 'З 28 квітня 2021 ви можете видаляти непотрібні розділи (TrashLauncher, Журнал змін, Погода)';
+				document.getElementById("changelogchangept16").innerHTML = 'Додано розділ "Головна" де ви можете вернутись на головну сторінку';
+				document.getElementById("changelogchangept17").innerHTML = 'Додано розділ "Зима 2021 & До 2022", докладніше в Листопаді/Грудні 2021';
+				document.getElementById("changelogchangept18").innerHTML = 'Додано час сайта';
+				document.getElementById("changelogchangept19").innerHTML = 'Додано розділ "Контакти" де ви можете відправити мені повідомлення';
+				document.getElementById("changelogchangept20").innerHTML = 'Добавлені значки до таких розділів як "Погода", "Головна", TrashLauncher, "Журнал змін", "Повідомити про помилку", "Зима 2021 & До 2022", і "Контакти"';
+				document.getElementById("changelogchangept21").innerHTML = 'Додано прогноз погоди';
+				document.getElementById("changelogchangept22").innerHTML = 'Додано значок сайта';
+				document.getElementById("changelogchangept23").innerHTML = 'Більш адаптований сайт';
+				
+				document.getElementById("changelogchangept24").innerHTML = 'Оновлення перекладу сайта';
+				document.getElementById("changelogchangept25").innerHTML = 'Тепер журнал змін більш зручніший';
+				document.getElementById("changelogchangept26").innerHTML = 'Значні покращення і оптимізація';
+				document.getElementById("changelogchangept27").innerHTML = 'Тепер ви можете загружати свою аватарку на сайт';
+				document.getElementById("changelogchangept28").innerHTML = 'Тепер сайт підтримує дві мови: English і Ukrainian';
+				document.getElementById("changelogchangept29").innerHTML = 'Оновлення сайту в цілому';
+				
+				document.getElementById("accordionExample").style.display = "none";
+				
+				if (document.getElementById("aboutsite").innerHTML == "Про сайт") {
+					document.getElementById("footerabout").innerHTML = '@ 2021 Зроблено <a href="#" contenteditable="true" class="link-primary">0x6k7</a>';
+					document.getElementById("reportabugbutton").style.display = "none";	
+				}
+				
+				document.title = "Сайт";
+			}
+		});
+	</script>
+  </ul>
+</div>
+  </div>
       </ul>
     </div>
   </div>
 </nav>
 
-<div class="main" id="mainform">
-	<h2 class="wth font-weight-light">About the site</h2>
-	
-	<p class="wth font-weight-light">Hi there, I'm Vitaliy, a-16-year-old student</p>
-	<p class="wth font-weight-light">I decided to create this website because i was wondering what kind of site i could create</p>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Main events of the year</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+		<b><div class="text-left" id="eventmonth">May 2021: </b></div>
+		<ul>
+			<li><div id="orthodoxeaster">2 May 2021 - <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Orthodox Easter?" data-bs-content="On this day Christians celebrate the Orthodox Easter">Orthodox Easter</a></div></li>
+			<li><div id="eventmonth2">5 May 2021 - Developer's <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Angel's day?" data-bs-content="Angel's day is a holiday on which it is better to be kind and honest throughtout the day">Angel day</a></div></li>
+			<li><div id="eventmonth3">9 May 2021 - World's <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Victory Day?" data-bs-content="Victory Day is a celibration of the Allied forces' victory over Germany">Victory Day</a></div></li>
+			<li><div id="eventmonth4">31 May 2021 - The end of the 2nd semester in the schools <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is the end?" data-bs-content="This day is the day when schools ends">31 May, 2021</a></div></li>
+		</ul>
+	</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="closebutton" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-	<p class="wth font-weight-light">There wiil be a history of projects, which are no longer supported</p>
-	<p class="wth font-weight-light">You'll see the plans for "Winter 2021 & Pre-2022" either in late fall or November/December 2021, by this time this section will be available</p></p>
-	<p class="wth font-weight-light">There's a changelog where you can see the changes on the site</p>
-	<p class="wth font-weight-light">There are buttons that allow you to clean up unnecessary sections</p>
-	<p class="wth font-weight-light">If you have a problem and/or suggestion, you can send me a private message in the "Contacts" section, or you can report a bug through the "Report a bug" button</p>
-	<p class="wth font-weight-light">Winter is not soon, I'd rather say summer is coming</p>
+<div class="main" id="mainform">
+	<h2 class="wth font-weight-light" id="aboutsite">About the site</h2>
+	
+	<p class="wth font-weight-light" id="aboutme">Hi there, I'm Vitaliy, a-16-year-old student</p>
+	<p class="wth font-weight-light" id="aboutme2">I decided to create this website because I was wondering what kind of site I could create</p>
+
+	<p class="wth font-weight-light" id="aboutme3">There will be a history of projects, which are no longer supported</p>
+	<p class="wth font-weight-light" id="aboutme4">You'll see the plans for "Winter 2021 & Pre-2022" either in late fall or November/December 2021, by this time this section will be available</p></p>
+	<p class="wth font-weight-light" id="aboutme5">There's a changelog where you can see the changes on the site</p>
+	<p class="wth font-weight-light" id="aboutme6">There are buttons that allow you to clean up unnecessary sections</p>
+	<p class="wth font-weight-light" id="aboutme7">If you have a problem and/or suggestion, you can send me a private message in the "Contacts" section, or you can report a bug through the "Report a bug" button</p>
+	<p class="wth font-weight-light" id="aboutme8">Winter is not soon, I'd rather say summer is on its way</p>
+		
 	<p class="wth font-weight-light" id="date"></p>
 
 <script>
@@ -189,9 +502,16 @@
 	var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 	var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 	var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-	document.getElementById("date").innerHTML = "Winter in: " + days + "d " + hours + "h "
-	+ minutes + "m " + seconds + "s ";
+	
+	if (document.getElementById("aboutsite").innerHTML == "Про сайт") {
+		document.getElementById("date").innerHTML = 'Зима за: ' + days + "д " + hours + "г "
+		+ minutes + "х " + seconds + "с ";
+	}
+	
+	else {
+		document.getElementById("date").innerHTML = 'Winter in: ' + days + "d " + hours + "h "
+		+ minutes + "m " + seconds + "s ";
+	}
 
 	if (distance < 0) {
 		clearInterval(x);
@@ -203,19 +523,23 @@
 		document.getElementById("time").innerHTML = getCurrentTime("Kiev", "+3")
 	</script>
 	</p>
-	<p class="wth font-weight-light" id="build">Build: 4/28/2021 8:02 AM</p>
-	<p class="wth font-weight-light" id="build">@ 2021 Made by <a href="#" class="link-primary">0x6k7</a></p>
+	<p class="wth font-weight-light" id="about">@ 2021 Made by <a href="#" class="link-primary">0x6k7</a></p>
 </div>
 
 <div class="weather text-center" id="weatherform">
-	<h2 class="wth font-weight-light">Weather forecast: </h2>
+	<h2 class="wth font-weight-light" id="weatherforecast">Weather forecast: </h2>
 	<div id="m-booked-weather-bl250-53996" style="position: relative; bottom: 1px;"> <div class="booked-wzs-250-175 weather-customize" style="background-color:#137AE9;width:250px;" id="width1"> <div class="booked-wzs-250-175_in"> <div class="booked-wzs-250-175-data"> <div class="booked-wzs-250-175-left-img wrz-03"> </div> <div class="booked-wzs-250-175-right"> <div class="booked-wzs-day-deck"> <div class="booked-wzs-day-val"> <div class="booked-wzs-day-number"><span class="plus">+</span>7</div> <div class="booked-wzs-day-dergee"> <div class="booked-wzs-day-dergee-val">&deg;</div> <div class="booked-wzs-day-dergee-name">C</div> </div> </div> <div class="booked-wzs-day"> <div class="booked-wzs-day-d">H: <span class="plus">+</span>8&deg;</div> <div class="booked-wzs-day-n">L: <span class="plus">+</span>1&deg;</div> </div> </div> <div class="booked-wzs-250-175-info"> <div class="booked-wzs-250-175-city">Ternopil </div> <div class="booked-wzs-250-175-date">Tuesday, 27 April</div> <div class="booked-wzs-left"> <span class="booked-wzs-bottom-l">See 7-Day Forecast</span> </div> </div> </div> </div> <table cellpadding="0" cellspacing="0" class="booked-wzs-table-250"> <tr> <td>Wed</td> <td>Thu</td> <td>Fri</td> <td>Sat</td> <td>Sun</td> <td>Mon</td> </tr> <tr> <td class="week-day-ico"><div class="wrz-sml wrzs-01"></div></td> <td class="week-day-ico"><div class="wrz-sml wrzs-03"></div></td> <td class="week-day-ico"><div class="wrz-sml wrzs-18"></div></td> <td class="week-day-ico"><div class="wrz-sml wrzs-18"></div></td> <td class="week-day-ico"><div class="wrz-sml wrzs-18"></div></td> <td class="week-day-ico"><div class="wrz-sml wrzs-18"></div></td> </tr> <tr> <td class="week-day-val"><span class="plus">+</span>12&deg;</td> <td class="week-day-val"><span class="plus">+</span>16&deg;</td> <td class="week-day-val"><span class="plus">+</span>15&deg;</td> <td class="week-day-val"><span class="plus">+</span>17&deg;</td> <td class="week-day-val"><span class="plus">+</span>22&deg;</td> <td class="week-day-val"><span class="plus">+</span>15&deg;</td> </tr> <tr> <td class="week-day-val">0&deg;</td> <td class="week-day-val"><span class="plus">+</span>4&deg;</td> <td class="week-day-val"><span class="plus">+</span>9&deg;</td> <td class="week-day-val"><span class="plus">+</span>7&deg;</td> <td class="week-day-val"><span class="plus">+</span>11&deg;</td> <td class="week-day-val"><span class="plus">+</span>7&deg;</td> </tr> </table> </a> </div> </div> </div><script type="text/javascript"> var css_file=document.createElement("link"); var widgetUrl = location.href; css_file.setAttribute("rel","stylesheet"); css_file.setAttribute("type","text/css"); css_file.setAttribute("href",'https://s.bookcdn.com/css/w/booked-wzs-widget-275.css?v=0.0.1'); document.getElementsByTagName("head")[0].appendChild(css_file); function setWidgetData_53996(data) { if(typeof(data) != 'undefined' && data.results.length > 0) { for(var i = 0; i < data.results.length; ++i) { var objMainBlock = document.getElementById('m-booked-weather-bl250-53996'); if(objMainBlock !== null) { var copyBlock = document.getElementById('m-bookew-weather-copy-'+data.results[i].widget_type); objMainBlock.innerHTML = data.results[i].html_code; if(copyBlock !== null) objMainBlock.appendChild(copyBlock); } } } else { alert('data=undefined||data.results is empty'); } } var widgetSrc = "https://widgets.booked.net/weather/info?action=get_weather_info;ver=7;cityID=53963;type=3;scode=124;ltid=3458;domid=w209;anc_id=64665;countday=undefined;cmetric=1;wlangID=1;color=137AE9;wwidth=250;header_color=ffffff;text_color=333333;link_color=08488D;border_form=1;footer_color=ffffff;footer_text_color=333333;transparent=0;v=0.0.1";widgetSrc += ';ref=' + widgetUrl;widgetSrc += ';rand_id=53996';widgetSrc += ';wstrackId=199940439';var weatherBookedScript = document.createElement("script"); weatherBookedScript.setAttribute("type", "text/javascript"); weatherBookedScript.src = widgetSrc; document.body.appendChild(weatherBookedScript) </script><!-- weather widget end -->
 </div>
 
 <div class="projects" id="projectsform">
 	<br>
-	<h2 class="wth font-weight-light">History of projects</h2>
+	<h2 class="wth font-weight-light" id="historyprojects">History of projects</h2>
 	<br>
+	
+	<div class="alert alert-warning alert-dismissible fade show" id="warning" role="alert">
+		This section hasn't been fully translated into Ukrainian
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
 
 	<div class="accordion bg-dark" id="accordionExample">
   <div class="accordion-item">
@@ -228,13 +552,13 @@
       <div class="accordion-body">
 		History.<br>
 		<br>2017<br>
-        <code>PHP DevelStudio</code> was the first "IDE" where i started to learn programming
+        <code>PHP DevelStudio</code> was the first "IDE" where I started to learn programming
 		<br>That "IDE" used PHP as a programming language
 		<br>The first time when I heard about <code>PHP DevelStudio</code> it was like the beginning of the 2017
 		<br>Seeing how easy it is to create a program (although it still can be decompiled)
 		<br>I was thinking to create a few programs
-		<br>I forgot about <code>PHP DevelStudio</code> until November 2017, then i decompliled the first program
-		<br>On 1st December 2017, I was thinking of creating a launcher, and i made a few updates and gave it up(I gave up, because I wanted to improve the user interace and the code)
+		<br>I forgot about <code>PHP DevelStudio</code> until November 2017, then I decompliled the first program
+		<br>On 1st December 2017, I was thinking of creating a launcher, and I made a few updates and gave it up(I gave up, because I wanted to improve the user interface and the code)
 		
 		<br>
 		<br>
@@ -243,7 +567,7 @@
 		
 		<br>In the beginning of 2018 like January, I created <code>Calculator</code>, <code>Task Manager</code> (that can only kill process though), <code>Base64 Encoder/Decoder</code>, and i've created <code>Unlocker</code>
 		<br>In the summer of 2018, I created the first decompiler <code>VDecompiler</code> that could decompile basic sections (Events, Config, Forms, Loader(Not always))
-		<br>In the autumn of 2018, I created another decompiler, but he could decompile Protectors, except for specific (E.g when someone creats a custom protection with custom sections)
+		<br>In the autumn of 2018, I created another decompiler <code>VDecompiler 2.0</code>, but he could decompile Protectors, except for specific (E.g when someone creats a custom protection with custom sections)
 		<br>In the middle of autumn 2018, I created <code>VDecompiler 2.0</code> and I learned a lot about DevelStudio Protection (Loader: A seperate file/section of program where the events/configs/forms load, and knowing how and where they decode you can get the code, How to get code of program without a decompiler or injector: Hook does a lot, How the injector gets code: While injected program is running, it replaces php5ts.dll original to php5ts.dll injected, after this the injected dll begins to hook as much as possible code, but there's a possibility to protect the program e.g check the checksum of dll)
 		<br>In October 2018, I created "obfuscator" program that was replacing strings to "IIIIIII", or "OOOOOOOO", "eval(base64_decode("
 		<br>At the end of 2018, I created "useless" the program that was used to test something (I can't recall)
@@ -256,19 +580,18 @@
 		
 		<br>Can't say what happened at the beginning of 2019
 		<br>In the summer of 2019, I've created TrashLauncher 2.0, but it had many bugs, and its protection wasn't good
-		<br>In the end of 2019, and as always i've created <code>TrashLauncher 2.0</code> (I don't know what for I created it then)
+		<br>In the end of 2019, and as always I've created <code>TrashLauncher 2.0</code> (I don't know what for I created it then)
 		
 		<br>
 		<br>
 		The Fall.<br>
 		<br>2020<br>
-		<br>Since 2020, i have figured out how to decompile any program that was made by <code>PHP DevelStudio</code>
-		<br>The year when i decided to leave <code>PHP DevelStudio</code> compelety, because the community switched to <code>DevelNext</code> or switched to another programming language
-		<br>And then i've learned Java, so i can write programs on Java
-		<br>In the end of 2020, i've created <code>TrashLauncher 2.0</code> (UPD: There's a new launcher called <code>TrashLauncher 2.0</code> written using C# + C++, the current one won't be rewritten). UPD2: TrashLauncher 2.0 is <b>no longer supported</b>
+		<br>Since 2020, I have figured out how to decompile any program that was made by <code>PHP DevelStudio</code>
+		<br>The year when I decided to leave <code>PHP DevelStudio</code> compelety, because the community switched to <code>DevelNext</code> or switched to another programming language
+		<br>And then I learned Java, so I could write programs in Java
+		<br>In the end of 2020, I've created <code>TrashLauncher 2.0</code> (UPD: There's a new launcher called <code>TrashLauncher 2.0</code> written using C# + C++, the current one won't be rewritten). UPD2: TrashLauncher 2.0 is <b>no longer supported</b>
 		<br>
 		
-		<br>
 		<br>
 		Postscript.<br>
 		<br>2021<br>
@@ -294,10 +617,10 @@
 		<br>
 		
 		2018
-		<br>I tried <code>DevelNext</code> in January 2018, as usual i didn't know how to write more complex program than hello world (lol)
+		<br>I tried <code>DevelNext</code> in January 2018, as usual I didn't know how to write more complex program than hello world (lol)
 		<br>For sure, <code>DevelNext</code> is definitely better than <code>PHP DevelStudio</code> at compiling the classes to bytecode thereby making it almost impossible to decompile the code (There was one decompiler, but he doesn't work since <code>DevelNext</code> added protection)
-		<br>In spring 2018, i've created <code>Calculator 2.0</code> with a new interface and he supported cross-platform running (you could run him on Windows, Linux, MacOS)
-		<br>In summer 2018 or so, i've learned a lot about <code>DevelNext</code> (History: When was DevelNext created, Syntax: After all, i didn't like the syntax, Protection: You need to be a good re-engineer to dissassemble any program written in DevelNext, Compiling: Nothing special, the compiler during the compilation builds every file to .jar, then it "obfuscates" the program, Ui: Not gonna lie, You can create a nice UI with a modern look, but then we would be faced with high memory usage, it's still Java with a different wrapper)
+		<br>In spring 2018, I've created <code>Calculator 2.0</code> with a new interface and he supported cross-platform running (you could run him on Windows, Linux, MacOS)
+		<br>In summer 2018 or so, I've learned a lot about <code>DevelNext</code> (History: When was DevelNext created, Syntax: After all, I didn't like the syntax, Protection: You need to be a good re-engineer to dissassemble any program written in DevelNext, Compiling: Nothing special, the compiler during the compilation builds every file to .jar, then it "obfuscates" the program, Ui: Not gonna lie, You can create a nice UI with a modern look, but then we would be faced with high memory usage, it's still Java with a different wrapper)
 		<br>The following is not without <code>TrashLauncher</code> that was created on DevelNext with a new dark interface and good protection from decompilers
 		<br>TrashLauncher existed until the end of 2018
 	
@@ -316,7 +639,7 @@
     </h2>
     <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        It could have been a good IDE for creating cross-platform programming, but i didn't like it for some reason
+        It could have been a good IDE for creating cross-platform programming, but I didn't like it for some reason
       </div>
     </div>
   
@@ -331,11 +654,11 @@
 		History.
 		<br>
 		<br>2018
-		<br>In the autumn of 2018, I've created console projects like (<code>Hello, World!</code>, <code>For and while</code>, <code>A simply game</code>, <code>Console</code>, <code>Classes Interaction</code>, <code>File check activation</code>)
+		<br>In the autumn of 2018, I've created console projects such as (<code>Hello, World!</code>, <code>For and while</code>, <code>A simply game</code>, <code>Console</code>, <code>Classes Interaction</code>, <code>File check activation</code>)
       
 		<br>
 		<br>2019
-		<br>Can't recall what i did then
+		<br>I can't remember what I did then
 		
 		<br>
 		<br>2020
@@ -359,21 +682,21 @@
 		<br>
 		
 		<br>The first serious programming language 
-		<br>In the beginning of 2018, i got an idea to create a lot programs on Java, but i barely knew how to create them
-		<br>In spring or summer, i've created <code>Calculator</code> with console interface, and a lot that was useful only to me to continue learning Java.
+		<br>In the beginning of 2018, I got an idea to create a lot programs in Java, but I barely knew how to create them
+		<br>In spring or summer, I've created <code>Calculator</code> with console interface, and a lot that was useful only to me to continue learning Java.
 		<br>In the end of 2018, I was planned to continue learning Java.
 		
 		<br>
 		<br>2019
 		<br>There was an attempt to write a cheat for Minecraft
-		<br>As i recall, on July, 2019, i tried to write the cheat but i faced with many problems
+		<br>As I recall, on July, 2019, I tried to write the cheat but I faced with many problems
 		<br>e.g There was no GUI, ClickGui, Killaura, Scaffold, Fly
 		<br>The rest was fine, but with bugs
 		
 		<br>
 		<br>2020
 		<br>I spent the whole year studying Java
-		<br>And in the end of 2020, i've created <code>TrashLauncher 2.0</code> the launcher no longer receives updates and no longer supported
+		<br>And in the end of 2020, I've created <code>TrashLauncher 2.0</code> the launcher no longer receives updates and no longer supported
 		<br>
 		
 		<br>2021
@@ -395,10 +718,10 @@
 		<br>
 		<br>2021
 		<br>
-		<br>On January, 2021, i was thinking of redesigning the launcher, because he looked like a program from 2000-2009 and the launcher was complelety written on Java (As a result of this: Terrible performance, memory consumption, non-native look, laggy JVM, need to have Java, Garbage collection that can't be used manually, etc...)
-		<br>So i thought it would be better to rewrite the launcher, i started to rewrite the whole launcher from the scratch
-		<br>With this language i have created TrashLauncher 2.0 with a dark theme and user-friendly GUI, it became a good idea tbh
-		<br>When i changed Java to C#, i managed to make a modern interface (It was much easier than if i had written a program in Java)
+		<br>On January, 2021, I was thinking of redesigning the launcher, because he looked like a program from 2000-2009 and the launcher was complelety written on Java (As a result of this: Terrible performance, memory consumption, non-native look, laggy JVM, need to have Java, Garbage collection that can't be used manually, etc...)
+		<br>So I thought it would be better to rewrite the launcher, I started to rewrite the whole launcher from the scratch
+		<br>With this language I have created TrashLauncher 2.0 with a dark theme and user-friendly GUI, it became a good idea tbh
+		<br>When I changed Java to C#, I managed to make a modern interface (It was much easier than if I had written a program in Java)
 		<br>Despite this, TrashLauncher has been supported since December 2017.
 		
 		<br>
@@ -412,7 +735,7 @@
 	
 	<h2 class="accordion-header" id="headingSixteen">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen">
-		Pre-2022 (2021.09/12-2022.01)
+		Pre-2022 (2021.09-2021.12)
       </button>
     </h2>
     <div id="collapseSixteen" class="accordion-collapse collapse" aria-labelledby="headingSixteen" data-bs-parent="#accordionExample">
@@ -442,133 +765,256 @@
 </div>
 </div>
 
-<button type="button" style="margin-top: 20px" id="clear" class="btn btn-primary btn-lg">Clear TrashLauncher</button>
-<button type="button" style="margin-top: 20px" id="clearr" class="btn btn-primary btn-lg">Clear changelog</button>
-<button type="button" style="margin-top: 20px" id="clearrr" class="btn btn-primary btn-lg">Clear weather</button>
+<button type="button" style="margin-top: 20px" id="clear" class="btn btn-primary btn-lg">Clear the "TrashLauncher" section</button>
+<button type="button" style="margin-top: 20px" id="clearr" class="btn btn-primary btn-lg">Clear the "Changelog" section</button>
+<button type="button" style="margin-top: 20px" id="clearrr" class="btn btn-primary btn-lg">Clear the "Weather" section</button>
 
 <script>
 	$(document).ready(function() {
         $("#clear").on('click', function() {
 			if (document.getElementById("trashlauncherform").style.display == "block") {
 				document.getElementById("trashlauncherform").style.display = "none";
-				console.log("TrashLauncher form has been cleaned up")
+				
+				if (document.getElementById("aboutsite").innerHTML == "Про сайт") {
+					console.log("Форма TrashLauncher була очищена")
+				}
+				
+				else {
+					console.log("TrashLauncher form has been cleaned up")
+				}
 			}
 			
 			else {
-				alert("There's nothing to clear")
+				if (document.getElementById("aboutsite").innerHTML == "Про сайт") {
+					alert("Немає нічого, щоб можна було очистити")
+				}
+				
+				else {
+					alert("There's nothing to clear")
+				}
 			}
 		});
 		
 		$("#clearr").on('click', function() {
 			if (document.getElementById("changelogform").style.display == "block") {
 				document.getElementById("changelogform").style.display = "none";
-				console.log("Changelog form has been cleaned up")
+				
+				if (document.getElementById("aboutsite").innerHTML == "Про сайт") {
+					console.log("Форма журналу змін була очищена")
+				}
+				
+				else {
+					console.log("Changelog form has been cleaned up")
+				}
 			}
 			
 			else {
-				alert("There's nothing to clear")
+				if (document.getElementById("aboutsite").innerHTML == "Про сайт") {
+					alert("Немає нічого, щоб можна було очистити")
+				}
+				
+				else {
+					alert("There's nothing to clear")
+				}
 			}
 		});
 		
 		$("#clearrr").on('click', function() {
 			if (document.getElementById("weatherform").style.display == "block") {
 				document.getElementById("weatherform").style.display = "none";
-				console.log("Weather forecast form has been cleaned up")
+				
+				if (document.getElementById("aboutsite").innerHTML == "Про сайт") {
+					console.log("Форма прогнозу погоди була очищена")
+				}
+				
+				else {
+					console.log("Weather forecast form has been cleaned up")
+				}
 			}
 			
 			else {
-				alert("There's nothing to clear")
+				if (document.getElementById("aboutsite").innerHTML == "Про сайт") {
+					alert("Немає нічого, щоб можна було очистити")
+				}
+				
+				else {
+					alert("There's nothing to clear")
+				}
 			}
 		});
     });
 </script>
 </div>
 
-<div class="changelogshit text-center" id="changelogform" href="#changelog"> 
+<div class="changelogshit" id="changelogform" href="#changelog"> 
 	<br>
-	<h2 class="wth font-weight-light">Changelog of the site </h2>
-	<br>
+	<h2 class="wth font-weight-light" id="changelogcaption">Changelog of the site </h2>
+	<br>	
+	<div class="accordion bg-dark" id="changelogExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="changelogHeadingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#changelogOne" aria-expanded="false" aria-controls="changelogOne">
+        30.01.2021
+      </button>
+    </h2>
+    <div id="changelogOne" class="accordion-collapse bg-gray collapse" aria-labelledby="changelogHeadingOne" data-bs-parent="#changelogExample">
+      <div class="accordion-body">
+		<div id="changelogchange">Added (About the site, History, TrashLauncher, Changelog, Winter 2021 & Pre-2022)</div>
+		<div id="changelogchange1">Сreated an accordion in the "History"</div>
+		<div id="changelogchange2">Filled the accordion in the "History"</div>
+		<div id="changelogchange3">Added the "TrashLauncher" section where you can download the TrashLauncher for Windows or Android (UPD: No longer supported)</div>
+		<div id="changelogchange4">Added the "Copyright" at the bottom of the site</div>
+		<div id="changelogchange5">Added a toast that says "Welcome to the site" every time you open the site</div>
+		<div id="changelogchange6">Added a button "Report a bug" where you can send a bug or suggestion</div>
+		<div id="changelogchange7">Added a changelog where you can see how the site has changed</div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="changelogHeadingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#changelogTwo" aria-expanded="false" aria-controls="changelogTwo">
+        17.03.2021
+      </button>
+    </h2>
+    <div id="changelogTwo" class="accordion-collapse collapse" aria-labelledby="changelogHeadingTwo" data-bs-parent="#changelogExample">
+      <div class="accordion-body">
+		<div id="changelogchangept1">Added the section "Conclusion" in the accordion</div>
+		<div id="changelogchangept2">Slightly edited "About the site" section</div>
+		<div id="changelogchangept3">Slightly edited the accordion "History" section</div> 
+		<div id="changelogchangept4">Deleted useless/unused code on the site</div> 
+		<div id="changelogchangept5">Slightly improved text in the accordion</div> 
+		<div id="changelogchangept6">Slightly improved text in the "Java" accordion</div>
+		<div id="changelogchangept7">Slightly improved text in the "DevelNext" accordion</div> 
+		<div id="changelogchangept8">Slightly improved text in the "PHP DevelStudio" accordion</div> 
+	  </div>
+    </div>
+  </div>
+  
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="changelogHeadingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#changelogThree" aria-expanded="false" aria-controls="changelogThree">
+		16.04.2021
+      </button>
+    </h2>
+    <div id="changelogThree" class="accordion-collapse collapse" aria-labelledby="changelogHeadingThree" data-bs-parent="#changelogExample">
+      <div class="accordion-body">
+        <div id="changelogchangept9">Added a timer to the site website</div>
+		<div id="changelogchangept10">Replaced inappropriate words</div> 
+      </div>
+    </div>
+  
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="changelogHeadingFour">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#changelogFour" aria-expanded="false" aria-controls="changelogFour">
+		28.04.2021
+      </button>
+    </h2>
+    <div id="changelogFour" class="accordion-collapse collapse" aria-labelledby="changelogHeadingFour" data-bs-parent="#changelogExample">
+      <div class="accordion-body">
+		<div id="changelogchangept11">You can no longer download TrashLauncher</div>
+		<div id="changelogchangept12">Removed the links to download TrashLauncher</div>
+		<div id="changelogchangept13">Added an easter egg on the site (Not working at the moment)</div> 
+		<div id="changelogchangept14">As of 28 April, 2021, TrashLauncher is no longer supported</div> 
+		<div id="changelogchangept15">As of 28 April, 2021, you can clean up unnecessary sections (TrashLauncher, Changelog, Weather)</div>
+		<div id="changelogchangept16">Added the section "Main" where you can move to the main form</div> 
+		<div id="changelogchangept17">Added the section "Pre-2022" more details in November/December 2021</div> 
+		<div id="changelogchangept18">Added website time</div> 
+		<div id="changelogchangept19">Added section "Contacts", where you can send me a message</div> 
+		<div id="changelogchangept20">Added icons to the "Weather", "Main", "History", "TrashLauncher", "Changelog", "Report a bug", "Winter 2021 & Pre-2022", and "Contacts" buttons</div> 
+		<div id="changelogchangept21">Added weather forecast</div>
+		<div id="changelogchangept22">Added site icon</div>
+		<div id="changelogchangept23">A more adapted site</div> 
+	  </div>
+    </div>
 	
-	<p class="wth font-weight-light">From this point on, the changelog begins (13.03.2021): </p>
-	<p class="wth font-weight-light">+ Added (About the site, History, TrashLauncher, Changelog, Winter 2021 & Pre-2022) </p>
-	<p class="wth font-weight-light">+ Сreated an accordion in the "History" </p>
-	<p class="wth font-weight-light">+ Filled the accordion in the "History" </p>
-	<p class="wth font-weight-light">+ Added the "TrashLauncher" section where you can download the TrashLauncher for Windows or Android (UPD: No longer supported)</p>
-	<p class="wth font-weight-light">+ Added the "Copyright" at the bottom of the site </p>
-	<p class="wth font-weight-light">+ Added a toast that says "Welcome to the site" every time you open the site</p>
-	<p class="wth font-weight-light">+ Added a button "Report a bug" where you can send a bug or suggestion</p>
-	<p class="wth font-weight-light">+ Added a changelog where you can see how the site has changed </p>
-	<p class="wth font-weight-light">+ Added the section "Conclusion" in the accordion </p>
-	<p class="wth font-weight-light">+ Slightly edited "About the site" section </p>
-	<p class="wth font-weight-light">+ Slightly edited the accordion "History" section </p>
-	<p class="wth font-weight-light">- Deleted useless/unused code on the site </p>
-	<p class="wth font-weight-light">+ Slightly improved text in the accordion </p>
-	<p class="wth font-weight-light">+ Slightly improved text in the "Java" accordion </p>
-	<p class="wth font-weight-light">+ Slightly improved text in the "DevelNext" accordion </p>
-	<p class="wth font-weight-light">+ Slightly improved text in the "PHP DevelStudio" accordion </p>
-	<p class="wth font-weight-light">+ Added a timer to the site website </p>
-	<p class="wth font-weight-light">+ Replaced inappropriate words </p>
-	<p class="wth font-weight-light">+ You can no longer download TrashLauncher </p>
-	<p class="wth font-weight-light">- Removed the links to download TrashLauncher </p>
-	<p class="wth font-weight-light">+ Added an easter egg on the site (Not working at the moment) </p>
-	<p class="wth font-weight-light">- As of 28 April, 2021, TrashLauncher is no longer supported </p>
-	<p class="wth font-weight-light">+ As of 28 April, 2021, you may clean up unnecessary sections (TrashLauncher, Changelog) </p>
-	<p class="wth font-weight-light">+ Added the section "Main" where you can move to the main form </p>
-	<p class="wth font-weight-light">+ Added the section "Pre-2022" more details in November/December 2021 </p>
-	<p class="wth font-weight-light">+ Added website time </p>
-	<p class="wth font-weight-light">+ Added section "Contacts", where you can send me a message </p>
-	<p class="wth font-weight-light">+ Added icons to the "Weather", "Main", "History", "TrashLauncher", "Changelog", "Report a bug" "Winter 2021 & Pre-2022", and "Contacts" buttons </p>
-	<p class="wth font-weight-light">+ Added weather forecast </p>
-	<p class="wth font-weight-light">+ Added site icon </p>
-	<p class="wth font-weight-light">~ A more adapted site </p>
+	<h2 class="accordion-header" id="changelogHeadingFive">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#changelogFive" aria-expanded="false" aria-controls="changelogFive">
+		05.05.2021
+      </button>
+    </h2>
+    <div id="changelogFive" class="accordion-collapse collapse" aria-labelledby="changelogHeadingFive" data-bs-parent="#changelogExample">
+      <div class="accordion-body">
+		<div id="changelogchangept24">Translation update</div>
+		<div id="changelogchangept25">The changelog is now more convenient</div>
+		<div id="changelogchangept26">Many improvements and optimizations</div>
+		<div id="changelogchangept27">You can now upload the icon to the site</div>
+		<div id="changelogchangept28">There are now two languages on the site (English, Ukrainian)</div>
+		<div id="changelogchangept29">Updating the site as a whole</div>
+	</div>
+    </div>
 	
-	<p class="wth font-weight-light"><b style="font-weight: 600;">Note: The site wasn't created on 13.03.2021 but on 30.01.2021 </b></p>
+	<!-- <h2 class="accordion-header" id="headingFifteen"> -->
+      <!-- <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifteen" aria-expanded="false" aria-controls="collapseFifteen"> -->
+		<!-- C# [.NET] (2021-20??) -->
+      <!-- </button> -->
+    <!-- </h2> -->
+    <!-- <div id="collapseFifteen" class="accordion-collapse collapse" aria-labelledby="headingFifteen" data-bs-parent="#accordionExample"> -->
+      <!-- <div class="accordion-body"> -->
+		<!-- History. -->
+		<!-- <br> -->
+		<!-- <br>2021 -->
+		<!-- <br> -->
+		<!-- <br>On January, 2021, i was thinking of redesigning the launcher, because he looked like a program from 2000-2009 and the launcher was complelety written on Java (As a result of this: Terrible performance, memory consumption, non-native look, laggy JVM, need to have Java, Garbage collection that can't be used manually, etc...) -->
+		<!-- <br>So i thought it would be better to rewrite the launcher, i started to rewrite the whole launcher from the scratch -->
+		<!-- <br>With this language i have created TrashLauncher 2.0 with a dark theme and user-friendly GUI, it became a good idea tbh -->
+		<!-- <br>When i changed Java to C#, i managed to make a modern interface (It was much easier than if i had written a program in Java) -->
+		<!-- <br>Despite this, TrashLauncher has been supported since December 2017. -->
+		
+		<!-- <br> -->
+		<!-- <br>28 April, 2021 -->
+		<!-- <br>The end of the support TrashLauncher -->
+		<!-- <br> -->
+		
+		<!-- <br>Status of projects: TrashLauncher 2.0: <b>No longer supported</b> -->
+	<!-- </div> -->
+    <!-- </div> -->
+	
+	<!-- <h2 class="accordion-header" id="headingSixteen"> -->
+      <!-- <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen"> -->
+		<!-- Pre-2022 (2021.09/12-2022.01) -->
+      <!-- </button> -->
+    <!-- </h2> -->
+    <!-- <div id="collapseSixteen" class="accordion-collapse collapse" aria-labelledby="headingSixteen" data-bs-parent="#accordionExample"> -->
+      <!-- <div class="accordion-body"> -->
+		<!-- This section is pretty interesting because no one knows what will happen at the time, and neither do i -->
+	<!-- </div> -->
+    <!-- </div> -->
+	
+	<!-- <h2 class="accordion-header" id="headingSeventeen"> -->
+      <!-- <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeventeen" aria-expanded="false" aria-controls="collapseSeventeen"> -->
+		<!-- Conclusion -->
+      <!-- </button> -->
+    <!-- </h2> -->
+    <!-- <div id="collapseSeventeen" class="accordion-collapse collapse" aria-labelledby="headingSeventeen" data-bs-parent="#accordionExample"> -->
+      <!-- <div class="accordion-body"> -->
+		<!-- Conclusion. -->
+		<!-- <br> -->
+		<!-- <br>2021 -->
+		<!-- <br> -->
+		<!-- <br>Yeah, there were many of projects/ideas(for them) that were useful at the time, but by this time they useless -->
+		<!-- <br>In the end remained: C#, C++ -->
+		<!-- <br>Well, it turns out that there are no projects that are supported yet -->
+		<!-- <br>That's all -->
+	<!-- </div> -->
+    <!-- </div> -->
+  </div>
+</div>
+  </div>
 </div>
 
 <div class="trashlaunchershit text-center" id="trashlauncherform"> 
 	<br>
-	<div class="alert alert-danger" role="alert">
-		As of 28 April, 2021, TrashLauncher no longer supported
+	<div class="alert alert-danger" id="alertdanger" role="alert">
+		As of 28 April 2021, TrashLauncher no longer supported. For more information, see "DevelStudio", "DevelNext", "Java", and "C#"
 	</div>
-<div aria-live="polite" aria-atomic="true" class="bottom-0 end-0 w-100">
-
-  <div class="toast bg-dark" style="position: absolute; bottom: 0; right: 0;" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header bg-dark">
-      <strong class="me-auto">Notification</strong>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body bg-dark text-white">
-      Welcome to the site
-    </div>
-  </div>
-</div>
-</div>
 </div>
 
-<script>
-    $(document).ready(function() {
-        $(".toast").toast('show');
-    });
-</script>
-
-<div aria-live="polite" aria-atomic="true" class="bottom-0 end-0 w-100">
-
-  <div class="toast bg-dark" style="position: absolute; bottom: 0; right: 0;" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header bg-dark">
-      <strong class="me-auto">Notification</strong>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body bg-dark text-white">
-      Welcome to the site
-    </div>
-  </div>
-</div>
 <footer>
 	<p class="footer"></p>
 	<div class="d-block d-sm-none">
-		<div class="alert alert-light bg-dark text-center border-primary" style="width:355px; margin-left: 10px; margin-top: 310px;" role="alert">
-		@ 2021 Made by <a href="#" contenteditable="true" class="link-primary">0x6k7</a>
-		<button type="button" class="btn btn-outline-primary ml-4"><a href="https://github.com/0x6k7/0x6k7.github.io/issues/new" target="_blank" rel="noopener noreferrer">Report a bug</a> </button>
+		<div class="alert alert-light bg-dark text-center border-primary" id="footerabout" style="width:355px; margin-left: 10px; margin-top: 310px;" role="alert">
+		@ 2021 Made by <a href="#" contenteditable="true" class="link-primary">0x6k7</a>		
+		<button type="button" id="reportabugbutton" class="btn btn-outline-primary ml-4"><a href="https://github.com/0x6k7/0x6k7.github.io/issues/new" target="_blank" rel="noopener noreferrer">Report a bug</a> </button>
 		</div>
 	</div>
 <footer> 
