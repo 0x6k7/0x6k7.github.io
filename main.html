@@ -541,12 +541,17 @@
 	<p class="wth font-weight-light" id="date"></p>
 
 <script>
-	function getCurrentTime(city, offset) {
-		var d = new Date();
-		var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
-		var nd = new Date(utc + (3600000 * offset));
-		
-		return "Site time: " + nd.toLocaleString();
+	function getCurrentTime() {
+		let a;
+		let time;
+		setInterval(() => {
+			a = new Date();
+			time = a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds();
+
+			if (document.getElementById("aboutsite").innerHTML == "About the site") {
+				document.getElementById('time').innerHTML = "Site time: " + time;
+			}
+    }, 1000);
 	}
 	
 	var countDownDate = new Date("Dec 1, 2021 00:00:00").getTime();
@@ -577,7 +582,7 @@
 </script>
 	<p class="wth font-weight-light" id="time">
 	<script>
-		document.getElementById("time").innerHTML = getCurrentTime("Kiev", "+3")
+		getCurrentTime();
 	</script>
 	</p>
 	<p class="wth font-weight-light" id="about">@ 2021 Made by <a href="#" class="link-primary">0x6k7</a></p>
