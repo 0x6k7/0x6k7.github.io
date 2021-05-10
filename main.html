@@ -158,8 +158,8 @@
     });
 	
 	var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-		var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-		return new bootstrap.Popover(popoverTriggerEl)
+		var popoverList = popoverTriggerList.map(function (popoverTrigger) {
+		return new bootstrap.Popover(popoverTrigger)
 	})
 });
 	</script>
@@ -259,7 +259,7 @@
         </li>
 		
         <li class="nav-item">
-			<a class="nav-link disabled" href="#" id="wintername" tabindex="-1" aria-disabled="true">Winter 2021 & Pre-2022 <i class="bi bi-snow"></i>  <span class="badge rounded-pill bg-secondary" id="badgespan">Unvailable</span></a>
+			<a class="nav-link disabled" href="#" id="wintername" tabindex="-1" aria-disabled="true">Winter 2021 & Pre-2022 <i class="bi bi-snow"></i>  <span class="badge rounded-pill bg-secondary" id="badgespan">Unavailable</span></a>
 		</li>
 		
 		<div class="row" id="pic">
