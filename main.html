@@ -189,10 +189,11 @@
 			$("nav").find("li", "weather").on("click", "a", function () {
 				document.getElementById("weatherform").style.display = "block"; 
 				document.getElementById("mainform").style.display = "none";
+				document.getElementById("changelogform").style.display = "none";
+				document.getElementById("projectsform").style.display = "none";
 				document.getElementById("trashlauncherform").style.display = "none";
 				document.getElementById("trashlauncherscreenhotsform").style.display = "none";
-				document.getElementById("projectsform").style.display = "none";
-				document.getElementById("changelogform").style.display = "none";
+				document.getElementById("alertdanger").style.display = "none";
 			});
 		  </script>
         </li>
@@ -211,9 +212,10 @@
 			$("nav").find("li", "kek").on("click", "a", function () {
 				document.getElementById("projectsform").style.display = "block";
 				document.getElementById("mainform").style.display = "none";
+				document.getElementById("weatherform").style.display = "none";
+				document.getElementById("changelogform").style.display = "none";
 				document.getElementById("trashlauncherform").style.display = "none";
 				document.getElementById("trashlauncherscreenhotsform").style.display = "none";
-				document.getElementById("changelogform").style.display = "none";
 			});
 		  </script>
         </li>
@@ -224,9 +226,10 @@
 			$("nav").find("li", "bnxm").on("click", "a", function () {
 				document.getElementById("trashlauncherform").style.display = "block"; 
 				document.getElementById("mainform").style.display = "none";
-				document.getElementById("trashlauncherscreenhotsform").style.display = "none";
-				document.getElementById("projectsform").style.display = "none";
+				document.getElementById("weatherform").style.display = "none";
 				document.getElementById("changelogform").style.display = "none";
+				document.getElementById("projectsform").style.display = "none";
+				document.getElementById("trashlauncherscreenhotsform").style.display = "none";
 			});
 		  </script>
         </li>
@@ -236,6 +239,7 @@
 			$("nav").find("li", "nzmh").on("click", "a", function () {
 				document.getElementById("changelogform").style.display = "block";
 				document.getElementById("mainform").style.display = "none";
+				document.getElementById("weatherform").style.display = "none";
 				document.getElementById("projectsform").style.display = "none";
 				document.getElementById("trashlauncherform").style.display = "none";
 			});
@@ -255,7 +259,7 @@
         </li>
 		
         <li class="nav-item">
-			<a class="nav-link disabled" href="#" id="wintername" tabindex="-1" aria-disabled="true">Winter 2021 & Pre-2022 <i class="bi bi-snow"></i>  <span class="badge rounded-pill bg-secondary" id="badgespan">Unavailable</span></a>
+			<a class="nav-link disabled" href="#" id="wintername" tabindex="-1" aria-disabled="true">Winter 2021 & Pre-2022 <i class="bi bi-snow"></i>  <span class="badge rounded-pill bg-secondary" id="badgespan">Unvailable</span></a>
 		</li>
 		
 		<div class="row" id="pic">
@@ -284,11 +288,11 @@
 			<li><a class="dropdown-item" href="#" id="hideicon"><i class="bi bi-camera"></i> Hide upload icon</a></li>
 			<li><a class="dropdown-item" href="#" id="hideprofile"><i class="bi bi-person-x"></i> Hide all</a></li>
 			<li><hr class="dropdown-divider"></li>
-			<li><a class="dropdown-item" href="#" id="Ukrainian"><i class="fa fa-language"></i> Українська</a></li>
+			<li><a class="dropdown-item" href="#" id="Ukrainian"><i class="fa fa-language"></i> Мова: Українська</a></li>
 			
 			<li><hr class="dropdown-divider"></li>
-			<li><a class="dropdown-item disabled" id="buildinfo" href="#"><i class="bi bi-clock"></i> Site build: 5/6/2021</a></li>
-			<li><a class="dropdown-item disabled" id="internalversion" href="#"><i class="bi bi-code-slash"></i> Internal version: #s929acv</a></li>
+			<li><a class="dropdown-item disabled" id="buildinfo" href="#"><i class="bi bi-clock"></i> Site build: 5/10/2021</a></li>
+			<li><a class="dropdown-item disabled" id="internalversion" href="#"><i class="bi bi-code-slash"></i> Internal version: #m678nlm</a></li>
 
 	<script>	
 		$("#borderavatar").on("click", function () {
@@ -353,10 +357,6 @@
 				document.getElementById("wintername").innerHTML = "Зима 2021 & До 2022 <i class='bi bi-snow'></i> <span class='badge rounded-pill bg-secondary'>Недоступний</span>";
 				document.getElementById("weatherforecast").innerHTML = "Прогноз погоди:";
 				document.getElementById("historyprojects").innerHTML = "Історія проектів";
-	
-				document.getElementById("clear").innerHTML = 'Очистити розділ "TrashLauncher"';
-				document.getElementById("clearr").innerHTML = 'Очистити розділ "Журнал змін"';
-				document.getElementById("clearrr").innerHTML = 'Очистити розділ "Погода"';
 				
 				document.getElementById("signedas").innerHTML = "Ви ввійшли як Гость";
 				
@@ -380,13 +380,21 @@
 				document.getElementById("hideicon").innerHTML = '<i class="bi bi-camera"></i> Сховати значок загрузки';
 				document.getElementById("hideprofile").innerHTML = '<i class="bi bi-person-x"></i> Сховати все';
 				
-				document.getElementById("buildinfo").innerHTML = '<i class="bi bi-clock"></i> Версія сайту: 05.06.2021';
-				document.getElementById("internalversion").innerHTML = '<i class="bi bi-code-slash"></i> Внутрішня версія: #s929acv';
+				document.getElementById("buildinfo").innerHTML = '<i class="bi bi-clock"></i> Версія сайту: 05.10.2021';
+				document.getElementById("internalversion").innerHTML = '<i class="bi bi-code-slash"></i> Внутрішня версія: #m678nlm';
 
 				document.getElementById("changelogcaption").innerHTML = "Журнал змін сайту";
-				document.getElementById("alertdanger").innerHTML = 'З 28 квітня 2021, TrashLauncher більше не підтримується. Дивіться "DevelStudio", "DevelNext", "Java", і "C#" для більшої інформації';
+				document.getElementById("alertdanger").innerHTML = 'З 28 квітня 2021, TrashLauncher більше не підтримується. Дивіться "DevelStudio", "DevelNext", "Java", і "C#" для більшої інформації <button type="button" class="btn-close" id="buttonclose" data-bs-dismiss="alert" aria-label="Close"></button>';
 		
 				document.getElementById("warning").innerHTML = 'Цей розділ не був повністю перекладений на Українську <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+		
+				document.getElementById("changelogname1").innerHTML = '30.01.2021';
+				document.getElementById("changelogname2").innerHTML = '17.03.2021';
+				document.getElementById("changelogname3").innerHTML = '16.04.2021';
+				document.getElementById("changelogname4").innerHTML = '28.04.2021';
+				document.getElementById("changelogname5").innerHTML = '05.05.2021';
+				document.getElementById("changelogname6").innerHTML = '06.05.2021';
+				document.getElementById("changelogname7").innerHTML = '10.05.2021';
 		
 				document.getElementById("changelogchange").innerHTML = 'Додано ("Про сайт", "Історія", "TrashLauncher", "Журнал змін", "Контакти")';
 				document.getElementById("changelogchange1").innerHTML = 'Створений акордеон "Історія"';
@@ -431,6 +439,10 @@
 				document.getElementById("changelogchangept29").innerHTML = 'Оновлення сайту загалом';
 				
 				document.getElementById("changelogchangept30").innerHTML = 'Незначні покращення';
+
+				document.getElementById("changelogchangept31").innerHTML = 'Виправлена проблема з розділом "TrashLauncher" і видалена кнопка "Очистити TrashLauncher" відповідно';
+				document.getElementById("changelogchangept32").innerHTML = 'Виправлена проблема з переключенням між розділами';
+				document.getElementById("changelogchangept33").innerHTML = 'Значні покращення і оптимізація';
 				
 				document.getElementById("exampleModalLabel3").innerHTML = 'Логін & Реєстрація';
 				document.getElementById("development").innerHTML = 'В розробці';
@@ -829,86 +841,6 @@
   </div>
 </div>
 </div>
-
-<button type="button" style="margin-top: 20px" id="clear" class="btn btn-primary btn-lg">Clear the "TrashLauncher" section</button>
-<button type="button" style="margin-top: 20px" id="clearr" class="btn btn-primary btn-lg">Clear the "Changelog" section</button>
-<button type="button" style="margin-top: 20px" id="clearrr" class="btn btn-primary btn-lg">Clear the "Weather" section</button>
-
-<script>
-	$(document).ready(function() {
-        $("#clear").on('click', function() {
-			if (document.getElementById("trashlauncherform").style.display == "block") {
-				document.getElementById("trashlauncherform").style.display = "none";
-				
-				if (document.getElementById("aboutsite").innerHTML == "Про сайт") {
-					console.log("Форма TrashLauncher була очищена")
-				}
-				
-				else {
-					console.log("TrashLauncher form has been cleaned up")
-				}
-			}
-			
-			else {
-				if (document.getElementById("aboutsite").innerHTML == "Про сайт") {
-					alert("Немає нічого, щоб можна було очистити")
-				}
-				
-				else {
-					alert("There's nothing to clear")
-				}
-			}
-		});
-		
-		$("#clearr").on('click', function() {
-			if (document.getElementById("changelogform").style.display == "block") {
-				document.getElementById("changelogform").style.display = "none";
-				
-				if (document.getElementById("aboutsite").innerHTML == "Про сайт") {
-					console.log("Форма журналу змін була очищена")
-				}
-				
-				else {
-					console.log("Changelog form has been cleaned up")
-				}
-			}
-			
-			else {
-				if (document.getElementById("aboutsite").innerHTML == "Про сайт") {
-					alert("Немає нічого, щоб можна було очистити")
-				}
-				
-				else {
-					alert("There's nothing to clear")
-				}
-			}
-		});
-		
-		$("#clearrr").on('click', function() {
-			if (document.getElementById("weatherform").style.display == "block") {
-				document.getElementById("weatherform").style.display = "none";
-				
-				if (document.getElementById("aboutsite").innerHTML == "Про сайт") {
-					console.log("Форма прогнозу погоди була очищена")
-				}
-				
-				else {
-					console.log("Weather forecast form has been cleaned up")
-				}
-			}
-			
-			else {
-				if (document.getElementById("aboutsite").innerHTML == "Про сайт") {
-					alert("Немає нічого, щоб можна було очистити")
-				}
-				
-				else {
-					alert("There's nothing to clear")
-				}
-			}
-		});
-    });
-</script>
 </div>
 
 <div class="changelogshit" id="changelogform" href="#changelog"> 
@@ -918,8 +850,8 @@
 	<div class="accordion bg-dark" id="changelogExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="changelogHeadingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#changelogOne" aria-expanded="false" aria-controls="changelogOne">
-        30.01.2021
+      <button class="accordion-button" id="changelogname1" type="button" data-bs-toggle="collapse" data-bs-target="#changelogOne" aria-expanded="false" aria-controls="changelogOne">
+        1/30/2021
       </button>
     </h2>
     <div id="changelogOne" class="accordion-collapse bg-gray collapse" aria-labelledby="changelogHeadingOne" data-bs-parent="#changelogExample">
@@ -937,8 +869,8 @@
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header" id="changelogHeadingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#changelogTwo" aria-expanded="false" aria-controls="changelogTwo">
-        17.03.2021
+      <button class="accordion-button collapsed" id="changelogname2" type="button" data-bs-toggle="collapse" data-bs-target="#changelogTwo" aria-expanded="false" aria-controls="changelogTwo">
+        3/17/2021
       </button>
     </h2>
     <div id="changelogTwo" class="accordion-collapse collapse" aria-labelledby="changelogHeadingTwo" data-bs-parent="#changelogExample">
@@ -957,8 +889,8 @@
   
   <div class="accordion-item">
     <h2 class="accordion-header" id="changelogHeadingThree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#changelogThree" aria-expanded="false" aria-controls="changelogThree">
-		16.04.2021
+      <button class="accordion-button collapsed" id="changelogname3" type="button" data-bs-toggle="collapse" data-bs-target="#changelogThree" aria-expanded="false" aria-controls="changelogThree">
+		4/16/2021
       </button>
     </h2>
     <div id="changelogThree" class="accordion-collapse collapse" aria-labelledby="changelogHeadingThree" data-bs-parent="#changelogExample">
@@ -970,8 +902,8 @@
   
   <div class="accordion-item">
     <h2 class="accordion-header" id="changelogHeadingFour">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#changelogFour" aria-expanded="false" aria-controls="changelogFour">
-		28.04.2021
+      <button class="accordion-button collapsed" id="changelogname4" type="button" data-bs-toggle="collapse" data-bs-target="#changelogFour" aria-expanded="false" aria-controls="changelogFour">
+		4/28/2021
       </button>
     </h2>
     <div id="changelogFour" class="accordion-collapse collapse" aria-labelledby="changelogHeadingFour" data-bs-parent="#changelogExample">
@@ -993,8 +925,8 @@
     </div>
 	
 	<h2 class="accordion-header" id="changelogHeadingFive">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#changelogFive" aria-expanded="false" aria-controls="changelogFive">
-		05.05.2021
+      <button class="accordion-button collapsed" id="changelogname5" type="button" data-bs-toggle="collapse" data-bs-target="#changelogFive" aria-expanded="false" aria-controls="changelogFive">
+		5/5/2021
       </button>
     </h2>
     <div id="changelogFive" class="accordion-collapse collapse" aria-labelledby="changelogHeadingFive" data-bs-parent="#changelogExample">
@@ -1009,8 +941,8 @@
     </div>
 	
 	<h2 class="accordion-header" id="changelogHeadingSix">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#changelogSix" aria-expanded="false" aria-controls="changelogSix">
-		05.06.2021
+      <button class="accordion-button collapsed" id="changelogname6" type="button" data-bs-toggle="collapse" data-bs-target="#changelogSix" aria-expanded="false" aria-controls="changelogSix">
+		5/6/2021
       </button>
     </h2>
     <div id="changelogSix" class="accordion-collapse collapse" aria-labelledby="changelogHeadingSix" data-bs-parent="#accordionExample">
@@ -1019,16 +951,18 @@
 	</div>
     </div>
 	
-	<!-- <h2 class="accordion-header" id="headingSixteen"> -->
-      <!-- <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen"> -->
-		<!-- Pre-2022 (2021.09/12-2022.01) -->
-      <!-- </button> -->
-    <!-- </h2> -->
-    <!-- <div id="collapseSixteen" class="accordion-collapse collapse" aria-labelledby="headingSixteen" data-bs-parent="#accordionExample"> -->
-      <!-- <div class="accordion-body"> -->
-		<!-- This section is pretty interesting because no one knows what will happen at the time, and neither do i -->
-	<!-- </div> -->
-    <!-- </div> -->
+	<h2 class="accordion-header" id="changelogHeadingSeven">
+      <button class="accordion-button collapsed" id="changelogname7" type="button" data-bs-toggle="collapse" data-bs-target="#changelogSeven" aria-expanded="false" aria-controls="changelogSeven">
+		5/10/2021
+      </button>
+    </h2>
+    <div id="changelogSeven" class="accordion-collapse collapse" aria-labelledby="changelogHeadingSeven" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+		<div id="changelogchangept31">Fixed a bug with the "TrashLauncher" section and removed "Clear the TrashLauncher section", respectively</div>
+		<div id="changelogchangept32">Fixed a bug with switching between partitions</div>
+		<div id="changelogchangept33">Many fixes and improvements</div>
+	</div>
+    </div>
 	
 	<!-- <h2 class="accordion-header" id="headingSeventeen"> -->
       <!-- <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeventeen" aria-expanded="false" aria-controls="collapseSeventeen"> -->
@@ -1046,7 +980,7 @@
 		<!-- <br>Well, it turns out that there are no projects that are supported yet -->
 		<!-- <br>That's all -->
 	<!-- </div> -->
-    <!-- </div> -->
+    </div>
   </div>
 </div>
   </div>
@@ -1054,8 +988,26 @@
 
 <div class="trashlaunchershit text-center" id="trashlauncherform"> 
 	<br>
-	<div class="alert alert-danger" id="alertdanger" role="alert">
-		As of 28 April 2021, TrashLauncher no longer supported. For more information, see "DevelStudio", "DevelNext", "Java", and "C#"
+	<div class="container">
+	<div class="alert alert-danger alert-dismissible fade show" id="alertdanger" role="alert">
+		As of 28 April 2021, TrashLauncher no longer supported. For more information, see "DevelStudio", "DevelNext", "Java", and "C#" sections
+		<button type="button" class="btn-close" id="buttonclose" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
+	
+	<script>
+		$("#buttonclose").on('click', function() {
+			if (document.getElementById("projectsform").style.display == "block" | (document.getElementById("changelogform").style.display == "block") | (document.getElementById("weatherform").style.display == "block")) {
+				
+			}
+			
+			else {		
+				document.getElementById("mainform").style.display = "block";
+				document.getElementById("projectsform").style.display = "none";
+				document.getElementById("weatherform").style.display = "none";
+				document.getElementById("changelogform").style.display = "none";
+			}
+		});		
+	</script>
 	</div>
 </div>
 
@@ -1064,7 +1016,6 @@
 	<div class="d-block d-sm-none">
 		<div class="alert alert-light bg-dark text-center border-primary" id="footerabout" style="width:355px; margin-left: 10px; margin-top: 310px;" role="alert">
 		@ 2021 Made by <a href="#" contenteditable="true" class="link-primary">0x6k7</a>		
-		<button type="button" id="reportabugbutton" class="btn btn-outline-primary ml-4"><a href="https://github.com/0x6k7/0x6k7.github.io/issues/new" target="_blank" rel="noopener noreferrer">Report a bug</a> </button>
 		</div>
 	</div>
 <footer> 
