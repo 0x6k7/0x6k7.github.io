@@ -17,11 +17,6 @@
 	
 	<link rel="shortcut icon" type="img/png" href="favicon.png"/>
 
-	<!-- <script src="https://cdn.jsdelivr.net/gh/xcash/bootstrap-autocomplete@master/dist/latest/bootstrap-autocomplete.min.js"></script> -->
-	<!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
-	<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
-	<!-- <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
-
 	<title>Site</title>
 	<style>
 		body {
@@ -291,8 +286,8 @@
 			<li><a class="dropdown-item" href="#" id="Ukrainian"><i class="fa fa-language"></i> Мова: Українська</a></li>
 			
 			<li><hr class="dropdown-divider"></li>
-			<li><a class="dropdown-item disabled" id="buildinfo" href="#"><i class="bi bi-clock"></i> Site build: 5/10/2021</a></li>
-			<li><a class="dropdown-item disabled" id="internalversion" href="#"><i class="bi bi-code-slash"></i> Internal version: #m678nlm</a></li>
+			<li><a class="dropdown-item disabled" id="buildinfo" href="#"><i class="bi bi-clock"></i> Site build: 5/18/2021</a></li>
+			<li><a class="dropdown-item disabled" id="internalversion" href="#"><i class="bi bi-code-slash"></i> Internal version: #s6afg7c</a></li>
 
 	<script>	
 		$("#borderavatar").on("click", function () {
@@ -366,6 +361,9 @@
 				document.getElementById("eventmonth2").innerHTML = "5 травня 2021 - День ангела в розробника сайту";
 				document.getElementById("eventmonth3").innerHTML = "9 травня 2021 - День перемоги";
 				document.getElementById("eventmonth4").innerHTML = "31 травня 2021 - Кінець другого семестру в школах";
+				
+				document.getElementById("eventmonth5").innerHTML = "<b>Червень 2021: </b>";
+				
 				document.getElementById("closebutton").innerHTML = "Закрити";
 				
 				document.getElementById("login").innerHTML = '<i class="bi bi-box-arrow-in-right"></i> Ввійти';
@@ -380,13 +378,13 @@
 				document.getElementById("hideicon").innerHTML = '<i class="bi bi-camera"></i> Сховати значок загрузки';
 				document.getElementById("hideprofile").innerHTML = '<i class="bi bi-person-x"></i> Сховати все';
 				
-				document.getElementById("buildinfo").innerHTML = '<i class="bi bi-clock"></i> Версія сайту: 10.05.2021';
-				document.getElementById("internalversion").innerHTML = '<i class="bi bi-code-slash"></i> Внутрішня версія: #m678nlm';
+				document.getElementById("buildinfo").innerHTML = '<i class="bi bi-clock"></i> Версія сайту: 18.05.2021';
+				document.getElementById("internalversion").innerHTML = '<i class="bi bi-code-slash"></i> Внутрішня версія: #s6afg7c';
 
 				document.getElementById("changelogcaption").innerHTML = "Журнал змін сайту";
-				document.getElementById("alertdanger").innerHTML = 'З 28 квітня 2021, TrashLauncher більше не підтримується. Дивіться "DevelStudio", "DevelNext", "Java", і "C#" для більшої інформації <button type="button" class="btn-close" id="buttonclose" data-bs-dismiss="alert" aria-label="Close"></button>';
+				document.getElementById("alertdanger").innerHTML = '<i class="bi bi-x-circle-fill"></i> З 28 квітня 2021, TrashLauncher більше не підтримується. Дивіться "DevelStudio", "DevelNext", "Java", і "C#" для більшої інформації <button type="button" class="btn-close" id="buttonclose" data-bs-dismiss="alert" aria-label="Close"></button>';
 		
-				document.getElementById("warning").innerHTML = 'Цей розділ не був повністю перекладений на Українську <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+				document.getElementById("warning").innerHTML = '<i class="bi bi-exclamation-triangle-fill"></i> Цей розділ не був повністю перекладений на Українську <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
 		
 				document.getElementById("changelogname1").innerHTML = '30.01.2021';
 				document.getElementById("changelogname2").innerHTML = '17.03.2021';
@@ -395,6 +393,7 @@
 				document.getElementById("changelogname5").innerHTML = '05.05.2021';
 				document.getElementById("changelogname6").innerHTML = '06.05.2021';
 				document.getElementById("changelogname7").innerHTML = '10.05.2021';
+				document.getElementById("changelogname8").innerHTML = '18.05.2021';
 		
 				document.getElementById("changelogchange").innerHTML = 'Додано ("Про сайт", "Історія", "TrashLauncher", "Журнал змін", "Контакти")';
 				document.getElementById("changelogchange1").innerHTML = 'Створений акордеон "Історія"';
@@ -443,6 +442,8 @@
 				document.getElementById("changelogchangept31").innerHTML = 'Виправлена проблема з розділом "TrashLauncher" і видалена кнопка "Очистити TrashLauncher" відповідно';
 				document.getElementById("changelogchangept32").innerHTML = 'Виправлена проблема з переключенням між розділами';
 				document.getElementById("changelogchangept33").innerHTML = 'Значні покращення і оптимізація';
+
+				document.getElementById("changelogchangept34").innerHTML = 'Незначні покращення';
 				
 				document.getElementById("exampleModalLabel3").innerHTML = 'Логін & Реєстрація';
 				document.getElementById("development").innerHTML = 'В розробці';
@@ -481,6 +482,9 @@
 			<li><div id="eventmonth2">5 May 2021 - Developer's <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Angel's day?" data-bs-content="Angel's day is a holiday on which it is better to be kind and honest throughtout the day">Angel's day</a></div></li>
 			<li><div id="eventmonth3">9 May CIS (Commonwealth of Independent States) 2021 - World's <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Victory Day?" data-bs-content="Victory Day is a celibration of the Allied forces' victory over Germany">Victory Day</a></div></li>
 			<li><div id="eventmonth4">31 May 2021 - The end of the 2nd semester in the schools <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is the end?" data-bs-content="This day is the day when schools ends">31 May, 2021</a></div></li>
+		</ul>
+		<b><div class="text-left" id="eventmonth5">June 2021: </b></div>
+		<ul>
 		</ul>
 	</div>
       <div class="modal-footer">
@@ -549,7 +553,7 @@
 	<p class="wth font-weight-light" id="aboutme6">There are buttons that allow you to clean up unnecessary sections</p>
 	<p class="wth font-weight-light" id="aboutme7">If you have a problem and/or suggestion, you can send me a private message in the "Contacts" section, or you can report a bug through the "Report a bug" button</p>
 	<p class="wth font-weight-light" id="aboutme8">Winter is not soon, I'd rather say summer is on its way</p>
-		
+
 	<p class="wth font-weight-light" id="date"></p>
 
 <script>
@@ -602,7 +606,7 @@
 
 <div class="weather text-center" id="weatherform">
 	<h2 class="wth font-weight-light" id="weatherforecast">Weather forecast: </h2>
-	<a class="weatherwidget-io" href="https://forecast7.com/en/49d6323d94/ternopillya/" data-label_1="TERNOPILLYA" data-label_2="WEATHER" data-theme="dark" >TERNOPILLYA WEATHER</a>
+	<a class="weatherwidget-io" id="weatherwidget1" href="https://forecast7.com/en/49d6323d94/ternopillya/" data-label_1="TERNOPILLYA" data-label_2="WEATHER" data-theme="dark" >TERNOPILLYA WEATHER</a>
 <script>
 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
 </script>
@@ -614,7 +618,7 @@
 	<br>
 	
 	<div class="alert alert-warning alert-dismissible fade show" id="warning" role="alert">
-		This section hasn't been fully translated into Ukrainian
+		<i class="bi bi-exclamation-triangle-fill"></i> This section hasn't been fully translated into Ukrainian
 		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 	</div>
 
@@ -964,33 +968,26 @@
 	</div>
     </div>
 	
-	<!-- <h2 class="accordion-header" id="headingSeventeen"> -->
-      <!-- <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeventeen" aria-expanded="false" aria-controls="collapseSeventeen"> -->
-		<!-- Conclusion -->
-      <!-- </button> -->
-    <!-- </h2> -->
-    <!-- <div id="collapseSeventeen" class="accordion-collapse collapse" aria-labelledby="headingSeventeen" data-bs-parent="#accordionExample"> -->
-      <!-- <div class="accordion-body"> -->
-		<!-- Conclusion. -->
-		<!-- <br> -->
-		<!-- <br>2021 -->
-		<!-- <br> -->
-		<!-- <br>Yeah, there were many of projects/ideas(for them) that were useful at the time, but by this time they useless -->
-		<!-- <br>In the end remained: C#, C++ -->
-		<!-- <br>Well, it turns out that there are no projects that are supported yet -->
-		<!-- <br>That's all -->
-	<!-- </div> -->
+	<h2 class="accordion-header" id="changelogHeadingEight">
+      <button class="accordion-button collapsed" id="changelogname8" type="button" data-bs-toggle="collapse" data-bs-target="#changelogEight" aria-expanded="false" aria-controls="#accordionExample">
+		5/18/2021
+      </button>
+    </h2>
+    <div id="changelogEight" class="accordion-collapse collapse" aria-labelledby="changelogHeadingEight" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+		<div id="changelogchangept34">Minor improvements</div>
+	  </div>
     </div>
   </div>
 </div>
   </div>
 </div>
 
-<div class="trashlaunchershit text-center" id="trashlauncherform"> 
+<div class="trashlaunchershit" id="trashlauncherform"> 
 	<br>
 	<div class="container">
 	<div class="alert alert-danger alert-dismissible fade show" id="alertdanger" role="alert">
-		As of 28 April 2021, TrashLauncher no longer supported. For more information, see "DevelStudio", "DevelNext", "Java", and "C#" sections
+		<i class="bi bi-x-circle-fill"></i> As of 28 April 2021, TrashLauncher no longer supported. For more information, see "DevelStudio", "DevelNext", "Java", and "C#" sections
 		<button type="button" class="btn-close" id="buttonclose" data-bs-dismiss="alert" aria-label="Close"></button>
 	</div>
 	
@@ -1018,7 +1015,6 @@
 		@ 2021 Made by <a href="#" contenteditable="true" class="link-primary">0x6k7</a>		
 		</div>
 	</div>
-<footer> 
-	
+<footer> 	
   </body>
 </html>
