@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> <!-- will be deleted in the next version -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
@@ -60,7 +60,7 @@
 			<!-- top: 72px; -->
 			position: relative;
 			top: 1px;
-			margin-left: 80px;
+			margin-left: 170px;
 		}
 		
 		img {
@@ -94,6 +94,12 @@
 	<div class="container">
 	<script>
 		$(document).ready(function() {
+			$("#wintername").on("click", function() {
+				alert("Not yet");
+			});
+
+			document.getElementById("badgespan").style.display = "none";
+
 			document.getElementById("projectsform").style.display = "none";
 			document.getElementById("weatherform").style.display = "none";
 			document.getElementById("trashlauncherform").style.display = "none";
@@ -103,20 +109,11 @@
 			
 			var width = screen.width;
 			
-			if (width == 1366 | width > 1366) {
+			if(width == 1366 | width > 1366) {
 				document.getElementById("about").style.display = "block";
 			}
 			
-			else if (width == 1920) {
-				var style = document.createElement('style');
-				style.innerHTML = ".circle {position: fixed; bottom: 1px; width: 48px; height: 48px; left: 50px;}";
-				document.head.appendChild(style);
-
-				document.getElementById("upload").style.left = "1255px";
-			}
-			
 			else {
-				document.getElementById("about").style.display = "none";
 				document.getElementById("upload").style.left = "130px";
 				document.getElementById("upload").style.bottom = "10px";
 				
@@ -158,6 +155,8 @@
 	})
 });
 	</script>
+
+	<!-- In the next version, obsolete "trashlauncherscreenhotsform" will be deleted !-->
 
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark" id="navbarmenu">
   <div class="container-fluid">
@@ -255,7 +254,7 @@
         </li>
 		
         <li class="nav-item">
-			<a class="nav-link disabled" href="#" id="wintername" tabindex="-1" aria-disabled="true">Winter 2021 & Pre-2022 <i class="bi bi-snow"></i>  <span class="badge rounded-pill bg-secondary" id="badgespan">Unavailable</span></a>
+			<a class="nav-link" href="#" id="wintername" tabindex="-1" aria-disabled="true">Winter 2021 & Pre-2022 <i class="bi bi-snow"></i> <span class="badge rounded-pill bg-secondary" id="badgespan">Unavailable</span></a>
 		</li>
 		
 		<div class="row" id="pic">
@@ -275,6 +274,8 @@
 			<li><a class="dropdown-item" href="#" id="bellicon" data-bs-toggle="modal" data-bs-target="#exampleModal" aria-expanded="false"><i class="bi bi-bell"></i> Events</a></li>
 			<li><a class="dropdown-item" href="#" id="musicplayericon" data-bs-toggle="modal" data-bs-target="#exampleModal2" aria-expanded="false"><i class="bi bi-file-earmark-music"></i> Music player</a></li>
 			<li><hr class="dropdown-divider"></li>
+			<li><a class="dropdown-item" href="#" id="abouts"><i class="bi bi-question-square"></i> About</a></li>
+			<li><hr class="dropdown-divider"></li>
 			<li><a class="dropdown-item" href="#" id="borderavatar"><i class="bi bi-border-all"></i> Add borders to the icon</a></li>
 			<li><a class="dropdown-item" href="#" id="deleteborder"><i class="bi bi-x-circle"></i> Delete icon borders</a></li>
 			<li><a class="dropdown-item" href="#" id="showicon"><i class="bi bi-camera-fill"></i> Show upload icon</a></li>
@@ -285,9 +286,9 @@
 			<li><a class="dropdown-item" href="#" id="Ukrainian"><i class="fa fa-language"></i> Мова: Українська</a></li>
 			
 			<li><hr class="dropdown-divider"></li>
-			<li><a class="dropdown-item disabled" id="buildinfo" href="#"><i class="bi bi-clock"></i> Site build: 6/29/2021</a></li>
-			<li><a class="dropdown-item disabled" id="internalversion" href="#"><i class="bi bi-code-slash"></i> Internal version: #b9c2i0</a></li>
-	<script>	
+			<li><a class="dropdown-item disabled" id="buildinfo" href="#"><i class="bi bi-clock"></i> Site build: 9/1/2021</a></li>
+			<li><a class="dropdown-item disabled" id="internalversion" href="#"><i class="bi bi-code-slash"></i> Internal version: #9s3kxl</a></li>
+	<script>		
 		$("#borderavatar").on("click", function () {
 			const randomColor = 
 			Math.floor(Math.random() * 16777215).toString(16);
@@ -325,6 +326,7 @@
 		$("#Ukrainian").on("click", function () {
 			if (document.getElementById("aboutsite").innerHTML == "About the site") {
 				document.getElementById("main").innerHTML = 'Головна';
+				document.getElementById("badgespan").style.display = "none";
 			
 				document.getElementById("aboutsite").innerHTML = "Про сайт";
 				document.getElementById("aboutme").innerHTML = "Привіт, я Віталій, 16 річний студент";
@@ -334,7 +336,7 @@
 				document.getElementById("aboutme5").innerHTML = "Є журнал змін, де ви можете побачити зміни на сайті";
 				document.getElementById("aboutme6").innerHTML = "Ви можете змінити мову сайта";
 				document.getElementById("aboutme7").innerHTML = 'Якщо у вас є проблема і/або пропозиція, ви можете відправити мені повідомлення через секцію Контактів, або ви можете відправити інформацію про неполадку/пропозицію через кнопку "Повідомити про помилку", "Запропонувати функцію", відповідно';
-				document.getElementById("aboutme8").innerHTML = "Зима не скоро, літо вже тут"
+				document.getElementById("aboutme8").innerHTML = "Скоро зима, осінь вже тут"
 				document.getElementById("about").innerHTML = '@ 2021 Зроблено <a href="#" class="link-primary">0x6k7</a>';
 				
 				document.getElementById("weathername").innerHTML = "Погода <i class='bi bi-cloud'></i>";
@@ -347,7 +349,7 @@
 				document.getElementById("redditname").innerHTML = "Реддіт <i class='fa fa-reddit'></i>";
 				document.getElementById("telegramname").innerHTML = "Телеграм <i class='bi bi-telegram'></i>";
 				
-				document.getElementById("wintername").innerHTML = "Зима 2021 & До 2022 <i class='bi bi-snow'></i> <span class='badge rounded-pill bg-secondary'>Недоступний</span>";
+				document.getElementById("wintername").innerHTML = "Зима 2021 & До 2022 <i class='bi bi-snow'></i> ";
 				document.getElementById("weatherforecast").innerHTML = "Прогноз погоди:";
 				document.getElementById("historyprojects").innerHTML = "Історія проектів";
 				
@@ -366,6 +368,20 @@
 				document.getElementById("constitutionday").innerHTML = "28 червня - День конституції України";
 				document.getElementById("internationalasteroidday").innerHTML = "30 червня - Міжнародний день астероїда";
 				
+				document.getElementById("eventmonth6").innerHTML = "Липень 2021: ";
+				document.getElementById("indepedenceday").innerHTML = "4 липня - День незалежності в США";
+				document.getElementById("parentsday").innerHTML = "25 липня - День батьків";
+				document.getElementById("nasaday").innerHTML = "29 липня - День заснування NASA";
+				
+				document.getElementById("eventmonth7").innerHTML = "Серпень 2021: ";
+				document.getElementById("victoryoverjapan").innerHTML = "9 серпня - День перемоги США над Японією";
+				document.getElementById("indepedencedayofukraine").innerHTML = "24 серпня - День незалежності України";
+				
+				document.getElementById("eventmonth8").innerHTML = "Вересень 2021: ";
+				document.getElementById("theworstdayforstudents").innerHTML = "1 вересня - Найгірший день для студентів";
+				document.getElementById("programmersday").innerHTML = "13 вересня - День программіста";
+				document.getElementById("constitutiondayofus").innerHTML = "17 вересня - День конституції США";
+
 				document.getElementById("closebutton").innerHTML = "Закрити";
 				
 				document.getElementById("bellicon").innerHTML = '<i class="bi bi-bell"></i> Події';
@@ -378,8 +394,8 @@
 				document.getElementById("hideicon").innerHTML = '<i class="bi bi-camera"></i> Сховати значок загрузки';
 				document.getElementById("hideprofile").innerHTML = '<i class="bi bi-person-x"></i> Сховати все';
 				
-				document.getElementById("buildinfo").innerHTML = '<i class="bi bi-clock"></i> Версія сайту: 29.06.2021';
-				document.getElementById("internalversion").innerHTML = '<i class="bi bi-code-slash"></i> Внутрішня версія: #b9c2i0';
+				document.getElementById("buildinfo").innerHTML = '<i class="bi bi-clock"></i> Версія сайту: 01.09.2021';
+				document.getElementById("internalversion").innerHTML = '<i class="bi bi-code-slash"></i> Внутрішня версія: #9s3kxl';
 
 				document.getElementById("changelogcaption").innerHTML = "Журнал змін сайту";
 				document.getElementById("alertdanger").innerHTML = '<i class="bi bi-x-circle-fill"></i> З 28 квітня 2021, TrashLauncher більше не підтримується. Дивіться секцію Історія для більшої інформації <button type="button" class="btn-close" id="buttonclose" data-bs-dismiss="alert" aria-label="Close"></button>';
@@ -395,7 +411,9 @@
 				document.getElementById("changelogname7").innerHTML = '10.05.2021';
 				document.getElementById("changelogname8").innerHTML = '18.05.2021';
 				document.getElementById("changelogname9").innerHTML = '29.06.2021';
+				document.getElementById("changelogname10").innerHTML = '01.09.2021';
 		
+				document.getElementById("githubchange").innerHTML = 'Сайт тепер на GitHub';
 				document.getElementById("changelogchange").innerHTML = 'Додано ("Про сайт", "Історія", "TrashLauncher", "Журнал змін", "Контакти")';
 				document.getElementById("changelogchange1").innerHTML = 'Створений акордеон "Історія"';
 				document.getElementById("changelogchange2").innerHTML = 'Заповнений акордеон "Історія"';
@@ -452,8 +470,14 @@
 				document.getElementById("changelogchangept38").innerHTML = 'Тепер ви можете запропонувати функцію за допомогою кнопки "Запропонувати функцію"';
 				document.getElementById("changelogchangept39").innerHTML = 'Видалені "Ввійти" і "Зареєструватись" в меню сайту';
 
-				document.getElementById("exampleModalLabel3").innerHTML = 'Логін & Реєстрація';
-				document.getElementById("development").innerHTML = 'В розробці';
+				document.getElementById("changelogchangept40").innerHTML = 'Розділ "Події" був оновлений';
+				document.getElementById("changelogchangept41").innerHTML = 'Розділ Зима 2021 & До 2022 буде доступний для всіх в грудні 2021';
+				document.getElementById("changelogchangept42").innerHTML = 'Виправлена проблема з секцією "Журнал змін"';
+				document.getElementById("changelogchangept43").innerHTML = 'Оновлена інформація в секції "Історія"';
+				document.getElementById("changelogchangept44").innerHTML = 'Незначні покращення';
+				document.getElementById("changelogchangept45").innerHTML = 'Bootstrap 4.5.3 більше не використовується';
+				document.getElementById("changelogchangept46").innerHTML = 'Виправлена неполадка в секції "Прогноз погоди", де віджет не відображався';
+
 				document.getElementById("closebutton2").innerHTML = 'Закрити';
 				
 				document.getElementById("accordionExample").style.display = "none";
@@ -475,6 +499,12 @@
   </div>
 </nav>
 
+<script>
+	$("#abouts").on("click", function() {
+		alert("As of September 1, this site uses the following: \nBootstrap: 5.0.0beta1\nBootstrap CSS: 4.5.3 and 5.0.0beta1\nJQuery: 3.5.1\nFont Awesome: 4.7.0\nPopper: 2.5.4");
+	});
+</script>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -488,14 +518,31 @@
 			<li><div id="orthodoxeaster">May 2 - <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Orthodox Easter?" data-bs-content="On this day Christians celebrate the Orthodox Easter">Orthodox Easter</a></div></li>
 			<li><div id="eventmonth2">May 5  - Developer's <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Angel's day?" data-bs-content="Angel's day is a holiday on which it is better to be kind and honest throughtout the day">Angel's day</a></div></li>
 			<li><div id="eventmonth3">May 9 CIS (Commonwealth of Independent States) 2021 - World's <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Victory Day?" data-bs-content="Victory Day is a celibration of the Allied forces' victory over Germany">Victory Day</a></div></li>
-			<li><div id="eventmonth4">May 31 - The end of the 2nd semester in the schools <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is the end?" data-bs-content="This day is the day when schools ends">31 May</a></div></li>
+			<li><div id="eventmonth4">May 31 - The end of the 2nd semester in the schools <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is the end?" data-bs-content="This day is the day when schools ends">May 31</a></div></li>
 		</ul>
 		<b><div class="text-left" id="eventmonth5">June 2021: </div></b>
 		<ul>
 			<li><div id="worldblooddonor">June 14 - <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is World Blood Donor?" data-bs-content="An event that raises awareness to the importance that donating blood means to the health industry, as the range of uses is way more diverse than anyone thinks. From plasma treatments to research and emergency uses, donating blood has been an important cornerstone that has aided the world on several occasions">World Blood Donor Day</a></div></li>
 			<li><div id="summersolstice">June 21 - <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Summer solstice?" data-bs-content="On this day the Sun is higher in the sky that on any other day">Summer solstice</a></div></li>
-			<li><div id="constitutionday">June 28 - <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Constitution Day?" data-bs-content="At 09:18 on this day back in 1996, the Verkhovna Rada of Ukraine adopted and enacted the Constitution of Ukraine">Constituion Day (UA)</a></div></li>
+			<li><div id="constitutionday">June 28 - <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Constitution Day?" data-bs-content="At 09:18 on this day back in 1996, the Verkhovna Rada of Ukraine adopted and enacted the Constitution of Ukraine">Constituion Day(UA)</a></div></li>
 			<li><div id="internationalasteroidday">June 30 - <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is International Asteroid Day?" data-bs-content="What would happen if an asteroid hit the Earth?">International Asteroid Day</a></div></li>
+		</ul>
+		<b><div class="text-left" id="eventmonth6">July 2021: </div></b>
+		<ul>
+			<li><div id="indepedenceday">July 4 - <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Independence Day?" data-bs-content="Independence day of America">Independence Day</a></div></li>
+			<li><div id="parentsday">July 25 - <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Parents' day?" data-bs-content="Don't forget about your parents">Parents' day</a></div></li>
+			<li><div id="nasaday">July 29 - <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is NASA Day?" data-bs-content="The day when NASA was founded">NASA Day</a></div></li>
+		</ul>
+		<b><div class="text-left" id="eventmonth7">August 2021: </div></b>
+		<ul>
+			<li><div id="victoryoverjapan">August 9 - <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Victory Day?" data-bs-content="On this day United States of America won over Japan">Victory Day</a></div></li>
+			<li><div id="indepedencedayofukraine">August 24 - <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Independence Day of Ukraine?" data-bs-content="No need to comment">Independence Day of Ukraine</a></div></li>
+		</ul>
+		<b><div class="text-left" id="eventmonth8">September 2021: </div></b>
+		<ul>
+			<li><div id="theworstdayforstudents">September 1 - <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is September 1?" data-bs-content="The worst day for students">The worst day for students</a></div></li>
+			<li><div id="programmersday">September 13 - <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Programmers' Day?" data-bs-content="This is the 256th day of the year">Programmers' Day</a></div></li>
+			<li><div id="constitutiondayofus">September 17 - <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Constituion Day(US)" data-bs-content="An important day for a native speaker in the USA">Constituion Day(US)</a></div></li>
 		</ul>
 	</div>
       <div class="modal-footer">
@@ -538,20 +585,6 @@
   </div>
 </div>
 
-<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel3">Login & Registration</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-	  		<p id="development">In development</p>
-	  </div>  
-    </div>
-  </div>
-</div>
-
 <div class="main" id="mainform">
 	<h2 class="wth font-weight-light" id="aboutsite">About the site</h2>
 	
@@ -559,11 +592,11 @@
 	<p class="wth font-weight-light" id="aboutme2">I decided to create this website because I was wondering what kind of site I could create</p>
 
 	<p class="wth font-weight-light" id="aboutme3">There will be a history of projects, which are no longer supported</p>
-	<p class="wth font-weight-light" id="aboutme4">You'll see the plans for "Winter 2021 & Pre-2022" either in late fall or November/December 2021, by this time this section will be available</p></p>
+	<p class="wth font-weight-light" id="aboutme4">You'll see the plans for "Winter 2021 & Pre-2022" in December 2021, by this time this section will be available</p></p>
 	<p class="wth font-weight-light" id="aboutme5">There's a changelog where you can see the changes on the site</p>
 	<p class="wth font-weight-light" id="aboutme6">You can change the site language</p>
 	<p class="wth font-weight-light" id="aboutme7">If you have a problem and/or suggestion, you can send me a private message in the "Contacts" section, or you can report a bug/suggestion through the "Report a bug", "Suggest a feature" button, respectively</p>
-	<p class="wth font-weight-light" id="aboutme8">Winter is not soon, summer is already here</p>
+	<p class="wth font-weight-light" id="aboutme8">Winter is coming soon, autumn is here</p>
 
 	<p class="wth font-weight-light" id="date"></p>
 
@@ -576,7 +609,7 @@
 			time = a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds();
 
 			if (document.getElementById("aboutsite").innerHTML == "About the site") {
-				document.getElementById('time').innerHTML = "Site time: " + time;
+				document.getElementById("time").innerHTML = "Site time: " + new Date().toLocaleTimeString();
 			}
     }, 1000);
 	}
@@ -617,10 +650,11 @@
 
 <div class="weather text-center" id="weatherform">
 	<h2 class="wth font-weight-light" id="weatherforecast">Weather forecast: </h2>
-	<a class="weatherwidget-io" id="weatherwidget1" href="https://forecast7.com/en/49d6323d94/ternopillya/" data-label_1="TERNOPILLYA" data-label_2="WEATHER" data-theme="dark" >TERNOPILLYA WEATHER</a>
-<script>
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js')
-</script>
+	<a class="weatherwidget-io" href="https://forecast7.com/en/49d5525d59/ternopil/" data-label_1="TERNOPIL" data-label_2="WEATHER" data-font="Ubuntu" data-theme="dark" >TERNOPIL WEATHER</a>
+	
+	<script>
+		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+	</script>
 </div>
 
 <div class="projects" id="projectsform">
@@ -633,17 +667,21 @@
 		
 		<div class="collapse" id="collapseExample">
 			<div class="card card-body">
-			  Q: Why hasn't it been translated yet?
-			  <br>
-			  A: Because of the developer's laziness
+			Q: Why hasn't it been translated yet?
+			<br>
+			A: Because of the developer's laziness</li>
+			<br>
+			Q: Why there's no Feb update?
+			<br>
+			A: Because I don't remember whether I did an update for the site in February or if the January update was the latest update as of February 2021
 			</div>
-		  </div>
+		</div>
 		
 		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 	</div>
 
 	<div class="accordion bg-dark" id="accordionExample">
-  <div class="accordion-item">
+	  <div class="accordion-item">  
     <h2 class="accordion-header" id="headingOne">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
         DevelStudio [Delphi 2007] (2017-2020)
@@ -659,25 +697,25 @@
 		<br>Seeing how easy it is to create a program (although it still can be decompiled)
 		<br>I was thinking to create a few programs
 		<br>I forgot about <code>PHP DevelStudio</code> until November 2017, then I decompliled the first program
-		<br>On 1st December 2017, I was thinking of creating a launcher, and I made a few updates and gave it up(I gave up, because I wanted to improve the user interface and the code)
+		<br>On December 1 2017, I was thinking of creating a launcher(<code>TrashLauncher 2017</code>), and I made a few updates and gave it up(I gave up, because I wanted to improve the user interface and the code)
 		
 		<br>
 		<br>
 		The rising.<br>
-		<br>2018<br>
+		<br>2018
 		
-		<br>In the beginning of 2018 like January, I created <code>Calculator</code>, <code>Task Manager</code> (that can only kill process though), <code>Base64 Encoder/Decoder</code>, and i've created <code>Unlocker</code>
+		<br>In the beginning of 2018 like January, I created <code>Calculator</code>, <code>Task Manager</code> (it couldn't kill system process), <code>Base64 Encoder/Decoder</code>, and i've created <code>Unlocker</code>
 		<br>In the summer of 2018, I created the first decompiler <code>VDecompiler</code> that could decompile basic sections (Events, Config, Forms, Loader(Not always))
-		<br>In the autumn of 2018, I created another decompiler <code>VDecompiler 2.0</code>, but he could decompile Protectors, except for specific (E.g when someone creats a custom protection with custom sections)
-		<br>In the middle of autumn 2018, I created <code>VDecompiler 2.0</code> and I learned a lot about DevelStudio Protection (Loader: A seperate file/section of program where the events/configs/forms load, and knowing how and where they decode you can get the code, How to get code of program without a decompiler or injector: Hook does a lot, How the injector gets code: While injected program is running, it replaces php5ts.dll original to php5ts.dll injected, after this the injected dll begins to hook as much as possible code, but there's a possibility to protect the program e.g check the checksum of dll)
-		<br>In October 2018, I created "obfuscator" program that was replacing strings to "IIIIIII", or "OOOOOOOO", "eval(base64_decode("
+		<br>In the autumn of 2018, I created another decompiler <code>VDecompiler 2.0</code>, that decompiled some basic Protectors, except for specific (E.g when someone creats a custom protection with custom sections)
+		<br>In the middle of autumn 2018, I created <code>VDecompiler 2.0</code> and I learned a lot about DevelStudio Protection (Loader: A seperate file/section of program where the events/configs/forms load, and knowing how and where they decode you can get the code, How to get code of program without a decompiler or injector: Hook does a lot, How the injector gets code: While injected program is running, it replaces php5ts.dll original to php5ts.dll injected, after this the injected dll begins to hook as much as possible code, but there's a possibility to protect the program (e.g check the checksum of dll)
+		<br>In October 2018, I created "obfuscator" program that was replacing strings to "IIIIIII", or "OOOOOOOO", "eval(base64_decode(", such an useless obfuscator, though, it can be cracked in a few minutes or even less
 		<br>At the end of 2018, I created "useless" the program that was used to test something (I can't recall)
-		<br>It was the end of 2018, I was thinking what to create, and it was <code>TrashLauncher 2.0</code> (i still didn't know how to write a program completely and took a lot from the internet)
+		<br>It was the end of 2018, I was thinking what to create, and I came up with an idea to create <code>TrashLauncher 2.0</code> (i still didn't know how to write a program completely and took a lot from the internet)
 		
 		<br>
 		<br>
 		The start to falling.<br>
-		<br>2019<br>
+		<br>2019
 		
 		<br>Can't say what happened at the beginning of 2019
 		<br>In the summer of 2019, I've created TrashLauncher 2.0, but it had many bugs, and its protection wasn't good
@@ -686,7 +724,7 @@
 		<br>
 		<br>
 		The Fall.<br>
-		<br>2020<br>
+		<br>2020
 		<br>Since 2020, I have figured out how to decompile any program that was made by <code>PHP DevelStudio</code>
 		<br>The year when I decided to leave <code>PHP DevelStudio</code> compelety, because the community switched to <code>DevelNext</code> or switched to another programming language
 		<br>And then I learned Java, so I could write programs in Java
@@ -695,10 +733,9 @@
 		
 		<br>
 		Postscript.<br>
-		<br>2021<br>
+		<br>2021
 		<br>By this time, DevelStudio is useless program without future
 		<br>A lot had changed before that
-		<br>The same relates to DevelNext
 		<br>
 		
 		<br>Status of projects: Calculator: <b>No longer supported: 2018.02 (2018/2)</b>, Task Manager: <b>No longer supported: 2018.02 (2018/2)</b>, Base64 Encoder/Decoder: <b>No longer supported: 2018.02 (2018/2)</b>, Unlocker: <b>No longer supported: 2018.01 (2018/1)</b> VDecompiler: <b>No longer supported: 2018.10 (2018/10)</b>, VDecompiler 2.0: <b>No longer supported: 2018.10 (2018/10)</b>, TrashLauncher 2017: <b>No longer supported: 03.12.2017</b>, Useless: <b>No longer supported: 2018.12 (2018/12) </b>TrashLauncher 2018: <b>No longer supported: 31.12.2018 </b>, TrashLauncher 2019: <b>No longer supported: 2019.12 (2019/12)</b>
@@ -719,10 +756,10 @@
 		
 		2018
 		<br>I tried <code>DevelNext</code> in January 2018, as usual I didn't know how to write more complex program than hello world (lol)
-		<br>For sure, <code>DevelNext</code> is definitely better than <code>PHP DevelStudio</code> at compiling the classes to bytecode thereby making it almost impossible to decompile the code (There was one decompiler, but he doesn't work since <code>DevelNext</code> added protection)
+		<br>For sure, <code>DevelNext</code> is definitely better than <code>PHP DevelStudio</code> at compiling the classes to bytecode thereby making it almost impossible to decompile the code (There was one decompiler, but he doesn't work since <code>DevelNext</code> added protection, UPD: There's one decompiler on GitHub)
 		<br>In spring 2018, I've created <code>Calculator 2.0</code> with a new interface and he supported cross-platform running (you could run him on Windows, Linux, MacOS)
-		<br>In summer 2018 or so, I've learned a lot about <code>DevelNext</code> (History: When was DevelNext created, Syntax: After all, I didn't like the syntax, Protection: You need to be a good re-engineer to dissassemble any program written in DevelNext, Compiling: Nothing special, the compiler during the compilation builds every file to .jar, then it "obfuscates" the program, Ui: Not gonna lie, You can create a nice UI with a modern look, but then we would be faced with high memory usage, it's still Java with a different wrapper)
-		<br>The following is not without <code>TrashLauncher</code> that was created on DevelNext with a new dark interface and good protection from decompilers
+		<br>In summer 2018 or so, I've learned a lot about <code>DevelNext</code> (History: When was DevelNext created, Syntax: After all, I didn't like the syntax, Protection: You need to be a good re-engineer to dissassemble any program written in DevelNext(Obsolete information), Compiling: Nothing special, the compiler during the compilation builds every file to .jar, then it "obfuscates" the program, Ui: Not gonna lie, You can create a nice UI with a modern look, but then we would be faced with high memory usage, it's still Java with a different wrapper)
+		<br>The following is not without <code>TrashLauncher</code> that was created on DevelNext with a new dark interface and built-in protection from decompilers
 		<br>TrashLauncher existed until the end of 2018
 	
 		<br>
@@ -735,12 +772,12 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingFive">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-		RAD Studio [Delphi] (2018-2020)
+		RAD Studio [Modern Delphi] (2018-20??)
       </button>
     </h2>
     <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        It could have been a good IDE for creating cross-platform programming, but I didn't like it for some reason
+        Sometimes I use the IDE
       </div>
     </div>
   
@@ -755,11 +792,10 @@
 		History.
 		<br>
 		<br>2018
-		<br>In the autumn of 2018, I've created console projects such as (<code>Hello, World!</code>, <code>For and while</code>, <code>A simply game</code>, <code>Console</code>, <code>Classes Interaction</code>, <code>File check activation</code>)
-      
+		<br>In the autumn of 2018, I've created basic console projects
 		<br>
 		<br>2019
-		<br>I can't remember what I did then
+		<br>I can't remember what I was doing then
 		
 		<br>
 		<br>2020
@@ -767,7 +803,7 @@
 		
 		<br>
 		<br>2021
-		<br>Nowadays, i use C++ for creating dll-only
+		<br>...
 	  </div>
     </div>
 	
@@ -780,7 +816,7 @@
       <div class="accordion-body">
 		History.<br>
 		<br>2018
-		<br>
+		
 		
 		<br>The first serious programming language 
 		<br>In the beginning of 2018, I got an idea to create a lot programs in Java, but I barely knew how to create them
@@ -802,7 +838,8 @@
 		
 		<br>2021
 		<br>The year when I stopped using Java
-		<br>E.g A program written in Java out of the box (Hello, World) consumes over 100 MB
+		<br>E.g: A program written in Java out of the box (Hello, World) consumes over 100 MB
+		
 		<br>
 		<br>Status of projects: Calculator: <b>No longer supported: 2018.02 (2018/2)</b>, programs that were useful only to me: <b>No longer supported: 2018.12 (2018/12)</b>, TrashLauncher 2.0: <b>No longer supported: 2021.02 (2021/2)</b>
 	</div>
@@ -810,7 +847,7 @@
 	
 	<h2 class="accordion-header" id="headingFifteen">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifteen" aria-expanded="false" aria-controls="collapseFifteen">
-		C# [.NET] (2021-20??)
+		C# [.NET] (2021)
       </button>
     </h2>
     <div id="collapseFifteen" class="accordion-collapse collapse" aria-labelledby="headingFifteen" data-bs-parent="#accordionExample">
@@ -818,7 +855,6 @@
 		History.
 		<br>
 		<br>2021
-		<br>
 		<br>On January, 2021, I was thinking of redesigning the launcher, because he looked like a program from 2000-2009 and the launcher was complelety written on Java (As a result of this: Terrible performance, memory consumption, non-native look, laggy JVM, need to have Java, Garbage collection that can't be used manually, etc...)
 		<br>So I thought it would be better to rewrite the launcher, I started to rewrite the whole launcher from the scratch
 		<br>With this language I have created TrashLauncher 2.0 with a dark theme and user-friendly GUI, it became a good idea tbh
@@ -826,10 +862,10 @@
 		<br>Despite this, TrashLauncher has been supported since December 2017.
 		
 		<br>
-		<br>28 April, 2021
+		<br>April 28, 2021
 		<br>The end of the support TrashLauncher
-		<br>
 		
+		<br>
 		<br>Status of projects: TrashLauncher 2.0: <b>No longer supported</b>
 	</div>
     </div>
@@ -842,7 +878,7 @@
     <div id="collapseSixteen" class="accordion-collapse collapse" aria-labelledby="headingSixteen" data-bs-parent="#accordionExample">
       <div class="accordion-body">
 		This section is pretty interesting because no one knows what will happen at the time, and neither do i
-	</div>
+	  </div>
     </div>
 	
 	<h2 class="accordion-header" id="headingSeventeen">
@@ -890,7 +926,7 @@
 		<div id="changelogchange7">Added a changelog where you can see how the site has changed</div>
       </div>
     </div>
-  </div>
+  </div>  
   <div class="accordion-item">
     <h2 class="accordion-header" id="changelogHeadingTwo">
       <button class="accordion-button collapsed" id="changelogname2" type="button" data-bs-toggle="collapse" data-bs-target="#changelogTwo" aria-expanded="false" aria-controls="changelogTwo">
@@ -899,6 +935,7 @@
     </h2>
     <div id="changelogTwo" class="accordion-collapse collapse" aria-labelledby="changelogHeadingTwo" data-bs-parent="#changelogExample">
       <div class="accordion-body">
+		<div id="githubchange">The site is now on GitHub</div>
 		<div id="changelogchangept1">Added the section "Conclusion" in the accordion</div>
 		<div id="changelogchangept2">Slightly edited "About the site" section</div>
 		<div id="changelogchangept3">Slightly edited the accordion "History" section</div> 
@@ -910,7 +947,6 @@
 	  </div>
     </div>
   </div>
-  
   <div class="accordion-item">
     <h2 class="accordion-header" id="changelogHeadingThree">
       <button class="accordion-button collapsed" id="changelogname3" type="button" data-bs-toggle="collapse" data-bs-target="#changelogThree" aria-expanded="false" aria-controls="changelogThree">
@@ -923,7 +959,7 @@
 		<div id="changelogchangept10">Replaced inappropriate words</div> 
       </div>
     </div>
-  
+  </div>
   <div class="accordion-item">
     <h2 class="accordion-header" id="changelogHeadingFour">
       <button class="accordion-button collapsed" id="changelogname4" type="button" data-bs-toggle="collapse" data-bs-target="#changelogFour" aria-expanded="false" aria-controls="changelogFour">
@@ -947,7 +983,7 @@
 		<div id="changelogchangept23">A more adapted site</div> 
 	  </div>
     </div>
-	
+</div>
 	<h2 class="accordion-header" id="changelogHeadingFive">
       <button class="accordion-button collapsed" id="changelogname5" type="button" data-bs-toggle="collapse" data-bs-target="#changelogFive" aria-expanded="false" aria-controls="changelogFive">
 		5/5/2021
@@ -969,7 +1005,7 @@
 		5/6/2021
       </button>
     </h2>
-    <div id="changelogSix" class="accordion-collapse collapse" aria-labelledby="changelogHeadingSix" data-bs-parent="#accordionExample">
+    <div id="changelogSix" class="accordion-collapse collapse" aria-labelledby="changelogHeadingSix" data-bs-parent="#changelogExample">
       <div class="accordion-body">
 		<div id="changelogchangept30">Minor improvements</div>
 	</div>
@@ -980,7 +1016,7 @@
 		5/10/2021
       </button>
     </h2>
-    <div id="changelogSeven" class="accordion-collapse collapse" aria-labelledby="changelogHeadingSeven" data-bs-parent="#accordionExample">
+    <div id="changelogSeven" class="accordion-collapse collapse" aria-labelledby="changelogHeadingSeven" data-bs-parent="#changelogExample">
       <div class="accordion-body">
 		<div id="changelogchangept31">Fixed a bug with the "TrashLauncher" section and removed "Clear the TrashLauncher section", respectively</div>
 		<div id="changelogchangept32">Fixed a bug with switching between partitions</div>
@@ -989,28 +1025,45 @@
     </div>
 	
 	<h2 class="accordion-header" id="changelogHeadingEight">
-      <button class="accordion-button collapsed" id="changelogname8" type="button" data-bs-toggle="collapse" data-bs-target="#changelogEight" aria-expanded="false" aria-controls="#accordionExample">
+      <button class="accordion-button collapsed" id="changelogname8" type="button" data-bs-toggle="collapse" data-bs-target="#changelogEight" aria-expanded="false" aria-controls="#changelogExample">
 		5/18/2021
       </button>
     </h2>
-    <div id="changelogEight" class="accordion-collapse collapse" aria-labelledby="changelogHeadingEight" data-bs-parent="#accordionExample">
+    <div id="changelogEight" class="accordion-collapse collapse" aria-labelledby="changelogHeadingEight" data-bs-parent="#changelogExample">
       <div class="accordion-body">
 		<div id="changelogchangept34">Minor improvements</div>
 	  </div>
     </div>
 
 	<h2 class="accordion-header" id="changelogHeadingNine">
-      <button class="accordion-button collapsed" id="changelogname9" type="button" data-bs-toggle="collapse" data-bs-target="#changelogNine" aria-expanded="false" aria-controls="#accordionExample">
+      <button class="accordion-button collapsed" id="changelogname9" type="button" data-bs-toggle="collapse" data-bs-target="#changelogNine" aria-expanded="false" aria-controls="#changelogExample">
 		6/29/2021
       </button>
     </h2>
-    <div id="changelogNine" class="accordion-collapse collapse" aria-labelledby="changelogHeadingEight" data-bs-parent="#accordionExample">
+    <div id="changelogNine" class="accordion-collapse collapse" aria-labelledby="changelogHeadingNine" data-bs-parent="#changelogExample">
       <div class="accordion-body">
 		<div id="changelogchangept35">Minor improvements</div>
 		<div id="changelogchangept36">Events section has been updated</div>
 		<div id="changelogchangept37">Removed unnecessary attributions at the header of the "Changelog"</div>
 		<div id="changelogchangept38">Now you can suggest a feature with the "Suggest a feature"</div>
 		<div id="changelogchangept39">Removed "Log in" and "Sign up" in the site menu</div>
+	  </div>
+    </div>
+	
+	<h2 class="accordion-header" id="changelogHeadingTen">
+      <button class="accordion-button collapsed" id="changelogname10" type="button" data-bs-toggle="collapse" data-bs-target="#changelogTen" aria-expanded="false" aria-controls="#changelogExample">
+		9/1/2021
+      </button>
+    </h2>
+    <div id="changelogTen" class="accordion-collapse collapse" aria-labelledby="changelogHeadingTen" data-bs-parent="#changelogExample">
+      <div class="accordion-body">
+		<div id="changelogchangept40">Events section has been updated</div>
+		<div id="changelogchangept41">Winter & Pre-2021 will be available to all in December 2021</div>
+		<div id="changelogchangept42">Fixed a bug with the "Changelog" section</div>
+		<div id="changelogchangept43">Updated information in the "History" section</div>
+		<div id="changelogchangept44">Minor improvements</div>
+		<div id="changelogchangept45">Bootstrap 4.5.3 is no longer used</div>
+		<div id="changelogchangept46">Fixed bug with the "Weather forecast", when the widget wasn't displayed</div>
 	  </div>
     </div>
   </div>
