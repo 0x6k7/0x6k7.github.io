@@ -120,7 +120,14 @@
 			}
 			
 			if(height == 720) {
-				alert(1)
+				document.getElementById("upload").style.left = "130px";
+				document.getElementById("upload").style.bottom = "10px";
+				
+				if (document.getElementById("aboutsite").innerHTML == "Про сайт") {
+					var style = document.createElement('style');
+					style.innerHTML = ".circle {position: fixed; bottom: 20px; width: 158px; height: 158px; top: 20px; right: 20px;}";
+					document.head.appendChild(style);
+				}
 			}
 			
 			else {
