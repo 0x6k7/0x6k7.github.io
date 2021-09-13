@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> <!-- will be deleted in the next version -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
@@ -39,89 +38,66 @@
 		.footer {
 			color: white;
 		}
-		
-		.profile-pic {
-			max-width: 200px;
-			max-height: 200px;
-			display: block;
-		}
 
 		.file-upload {
 			display: none;
 		}
-		
-		.circle {
-			border-radius: 1000px !important;
-			overflow: hidden;
-			width: 54px;
-			height: 54px;
-			border: 3px solid;
-			position: absolute;
-			<!-- top: 72px; -->
-			position: relative;
-			top: 1px;
-			margin-left: 170px;
-		}
-		
-		img {
-			max-width: 100%;
-			height: auto;
-		}
-		
-		.p-image {
-			position: absolute;
-			top: 28px;
-			right: 30px;
-			color: #666666;
-			transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
-		}
-
-		.p-image:hover {
-			transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
-		}
-		
-		.upload-button {
-			font-size: 1.2em;
-		}
-
-		.upload-button:hover {
-			transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
-			color: #999;
-		}
 	</style>
   </head>
   <body>
-	<div class="container">
+	<div class="container-fluid">
 	<script>
 		$(document).ready(function() {
-			$("#wintername").on("click", function() {
-				alert("Not yet");
-			});
-
-			document.getElementById("badgespan").style.display = "none";
-
 			document.getElementById("projectsform").style.display = "none";
 			document.getElementById("weatherform").style.display = "none";
-			document.getElementById("trashlauncherform").style.display = "none";
+			document.getElementById("cprojectsform").style.display = "none";
 			document.getElementById("changelogform").style.display = "none";
 			
 			$('[data-toggle="tooltip"]').tooltip()
 			
 			var width = screen.width;
+			var height = screen.height;
 			
-			if(width == 1366 | width > 1366) {
-				document.getElementById("about").style.display = "block";
+			if(width == 1366) {
+				document.getElementById("detectcard").style.top = "0.1rem"; 
 			}
 			
-			else {
-				document.getElementById("upload").style.left = "130px";
-				document.getElementById("upload").style.bottom = "10px";
+			if(width == 1920) {
+				document.getElementById("aboutme").style.fontSize = "x-large"; 
+				document.getElementById("aboutme2").style.fontSize = "x-large";
+				document.getElementById("aboutme3").style.fontSize = "x-large"; 
+				document.getElementById("aboutme4").style.fontSize = "x-large"; 
+				document.getElementById("aboutme5").style.fontSize = "x-large"; 
+				document.getElementById("aboutme6").style.fontSize = "x-large";
+				document.getElementById("aboutme7").style.fontSize = "x-large"; 
+				document.getElementById("aboutme8").style.fontSize = "x-large";
+  				
+				document.getElementById("date").style.fontSize = "x-large";
+				document.getElementById("time").style.fontSize = "x-large";
 				
-				if (document.getElementById("aboutsite").innerHTML == "Про сайт") {
-					var style = document.createElement('style');
-					style.innerHTML = ".circle {position: fixed; bottom: 20px; width: 158px; height: 158px; top: 20px;}";
-					document.head.appendChild(style);
-				}
+				document.getElementById("about").style.fontSize = "x-large";
+			}
+			
+			if(width > 370) {
+				document.getElementById("bsodcrashcard").style.left = "0.1rem"; 
+				document.getElementById("detectcard").style.right = "0.1rem"; 
+				document.getElementById("detectcard").style.top = "10px"; 
+			}
+			
+			if(height == 1280) {
+				document.getElementById("detectcard").style.top = "0.1rem"; 
+			}
+			
+			if(height > 800 && height < 900) {
+				document.getElementById("footerabout").style.display = "none"; 
+			}
+			
+			if(height > 730) {
+				document.getElementById("footerabout").style.display = "none"; 
+			}
+			
+			if(height >= 640) {
+				document.getElementById("footerabout").style.display = "none"; 
 			}
 		});
 	</script>
@@ -155,9 +131,7 @@
 	})
 });
 	</script>
-
-	<!-- In the next version, obsolete "trashlauncherscreenhotsform" will be deleted !-->
-
+	
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark" id="navbarmenu">
   <div class="container-fluid">
     <a class="navbar-brand" id="main" href="#" data-toggle="tooltip" data-placement="top" title="Back to the main form"><i class="bi bi-arrow-left-short"></i>Main</a>
@@ -170,8 +144,7 @@
 					document.getElementById("weatherform").style.display = "none";
 					document.getElementById("changelogform").style.display = "none";
 					document.getElementById("projectsform").style.display = "none";
-					document.getElementById("trashlauncherform").style.display = "none";
-					document.getElementById("trashlauncherscreenhotsform").style.display = "none";
+					document.getElementById("cprojectsform").style.display = "none";					
 				});
 			});
 	  </script>
@@ -186,9 +159,8 @@
 				document.getElementById("mainform").style.display = "none";
 				document.getElementById("changelogform").style.display = "none";
 				document.getElementById("projectsform").style.display = "none";
-				document.getElementById("trashlauncherform").style.display = "none";
-				document.getElementById("trashlauncherscreenhotsform").style.display = "none";
-				document.getElementById("alertdanger").style.display = "none";
+				document.getElementById("cprojectsform").style.display = "none";
+				document.getElementById("nullform").style.display = "none";
 			});
 		  </script>
         </li>
@@ -209,22 +181,22 @@
 				document.getElementById("mainform").style.display = "none";
 				document.getElementById("weatherform").style.display = "none";
 				document.getElementById("changelogform").style.display = "none";
-				document.getElementById("trashlauncherform").style.display = "none";
-				document.getElementById("trashlauncherscreenhotsform").style.display = "none";
+				document.getElementById("cprojectsform").style.display = "none";
+				document.getElementById("nullform").style.display = "none";
 			});
 		  </script>
         </li>
 		<li class="bnxm nav-item">
-          <a class="nav-link" data-bs-toggle="tooltip" data-bs-html="true" data-toggle="tooltip" data-placement="top" id="trashlaunchername" title="Information about launcher" href="#">TrashLauncher <i class="bi bi-trash"></i></a>
+          <a class="nav-link" data-bs-toggle="tooltip" data-bs-html="true" data-toggle="tooltip" data-placement="top" id="projectsname" title="Information about current projects" href="#">Projects <i class="bi bi-cloud-download"></i></a>
 		  <div class="dropdown">
 		  <script>
 			$("nav").find("li", "bnxm").on("click", "a", function () {
-				document.getElementById("trashlauncherform").style.display = "block"; 
+				document.getElementById("cprojectsform").style.display = "block"; 
 				document.getElementById("mainform").style.display = "none";
 				document.getElementById("weatherform").style.display = "none";
 				document.getElementById("changelogform").style.display = "none";
 				document.getElementById("projectsform").style.display = "none";
-				document.getElementById("trashlauncherscreenhotsform").style.display = "none";
+				document.getElementById("nullform").style.display = "none";
 			});
 		  </script>
         </li>
@@ -236,7 +208,7 @@
 				document.getElementById("mainform").style.display = "none";
 				document.getElementById("weatherform").style.display = "none";
 				document.getElementById("projectsform").style.display = "none";
-				document.getElementById("trashlauncherform").style.display = "none";
+				document.getElementById("cprojectsform").style.display = "none";
 			});
 		  </script>
         </li>
@@ -252,23 +224,12 @@
             <li><a class="dropdown-item" id="telegramname" href="https://t.me/memorypanic">Telegram <i class="bi bi-telegram"></i></a></li>
           </ul>
         </li>
-		
-        <li class="nav-item">
-			<a class="nav-link" href="#" id="wintername" tabindex="-1" aria-disabled="true">Winter 2021 & Pre-2022 <i class="bi bi-snow"></i> <span class="badge rounded-pill bg-secondary" id="badgespan">Unavailable</span></a>
-		</li>
-		
-		<div class="row" id="pic">
-			<div class="small-12 medium-2 large-2 columns">
-			<div class="circle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-			<img class="profile-pic" src="">
-		</div>
-		
-		<div class="p-image" id="upload">
-			<i class="fa fa-camera upload-button" alt="Upload an image here"></i>
-			<input class="file-upload" type="file" accept="image/*"/>
-		</div>
-		
-		<ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
+		<li class="settings nav-item">
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="settingsid" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Settings <i class="bi bi-gear-fill"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="settingsname">
 			<li><a class="dropdown-item disabled" id="signedas" href="#">Authorized as Guest</a></li>
 			<li><hr class="dropdown-divider"></li>
 			<li><a class="dropdown-item" href="#" id="bellicon" data-bs-toggle="modal" data-bs-target="#exampleModal" aria-expanded="false"><i class="bi bi-bell"></i> Events</a></li>
@@ -276,71 +237,39 @@
 			<li><hr class="dropdown-divider"></li>
 			<li><a class="dropdown-item" href="#" id="abouts"><i class="bi bi-question-square"></i> About</a></li>
 			<li><hr class="dropdown-divider"></li>
-			<li><a class="dropdown-item" href="#" id="borderavatar"><i class="bi bi-border-all"></i> Add borders to the icon</a></li>
-			<li><a class="dropdown-item" href="#" id="deleteborder"><i class="bi bi-x-circle"></i> Delete icon borders</a></li>
-			<li><a class="dropdown-item" href="#" id="showicon"><i class="bi bi-camera-fill"></i> Show upload icon</a></li>
 			<li><a class="dropdown-item" href="https://github.com/0x6k7/0x6k7.github.io/pulls" id="suggestafeature"><i class="bi bi-pencil-square"></i> Suggest a feature</a></li>
-			<li><a class="dropdown-item" href="#" id="hideicon"><i class="bi bi-camera"></i> Hide upload icon</a></li>
-			<li><a class="dropdown-item" href="#" id="hideprofile"><i class="bi bi-person-x"></i> Hide all</a></li>
+			<li><a class="dropdown-item" href="#" id="refreshpage"><i class="bi bi-x-octagon"></i> Revert changes</a></li>
 			<li><hr class="dropdown-divider"></li>
 			<li><a class="dropdown-item" href="#" id="Ukrainian"><i class="fa fa-language"></i> Мова: Українська</a></li>
 			
 			<li><hr class="dropdown-divider"></li>
-			<li><a class="dropdown-item disabled" id="buildinfo" href="#"><i class="bi bi-clock"></i> Site build: 9/1/2021</a></li>
-			<li><a class="dropdown-item disabled" id="internalversion" href="#"><i class="bi bi-code-slash"></i> Internal version: #9s3kxl</a></li>
-	<script>		
-		$("#borderavatar").on("click", function () {
-			const randomColor = 
-			Math.floor(Math.random() * 16777215).toString(16);
-			document.getElementById("pic").style.color = "#" + randomColor;
-		});
-		
-		$("#deleteborder").on("click", function () {
-			if (document.getElementById("pic").style.color == "") {
-				if (document.getElementById("aboutsite").innerHTML == "Про сайт") {
-					alert("Межі іконки пусті")
-				}
-				
-				else {
-					alert("Borders of the icon are empty")
-				}
-			}
-			
-			else {
-				document.getElementById("pic").style.color = "";
-			}
-		});
-		
-		$("#showicon").on("click", function () {
-			document.getElementById("upload").style.display = "block";
-		});
-		
-		$("#hideicon").on("click", function () {
-			document.getElementById("upload").style.display = "none";
-		});
-		
-		$("#hideprofile").on("click", function () {
-			document.getElementById("pic").style.display = "none";
-		});
+			<li><a class="dropdown-item disabled" id="buildinfo" href="#"><i class="bi bi-clock"></i> Site build: 9/13/2021</a></li>
+			<li><a class="dropdown-item disabled" id="internalversion" href="#"><i class="bi bi-code-slash"></i> Internal version: #h4x9a</a></li>
+          </ul>
 
+	<script>
+		$("#refreshpage").on("click", function () {
+			location.reload();
+		});
+	
 		$("#Ukrainian").on("click", function () {
 			if (document.getElementById("aboutsite").innerHTML == "About the site") {
 				document.getElementById("main").innerHTML = 'Головна';
-				document.getElementById("badgespan").style.display = "none";
 			
 				document.getElementById("aboutsite").innerHTML = "Про сайт";
 				document.getElementById("aboutme").innerHTML = "Привіт, я Віталій, 16 річний студент";
 				document.getElementById("aboutme2").innerHTML = "Я вирішив створити цей сайт, тому що мені було цікаво, який саме сайт я можу зробити";
 				document.getElementById("aboutme3").innerHTML = "Буде історія проектів, які більше не підтримуются";
-				document.getElementById("aboutme4").innerHTML = "Плани на Зиму 2021 будуть доступні або в кінці осені або в Листопаді/Грудні 2021";
+				document.getElementById("aboutme4").innerHTML = "Є прогноз погоди";
 				document.getElementById("aboutme5").innerHTML = "Є журнал змін, де ви можете побачити зміни на сайті";
 				document.getElementById("aboutme6").innerHTML = "Ви можете змінити мову сайта";
 				document.getElementById("aboutme7").innerHTML = 'Якщо у вас є проблема і/або пропозиція, ви можете відправити мені повідомлення через секцію Контактів, або ви можете відправити інформацію про неполадку/пропозицію через кнопку "Повідомити про помилку", "Запропонувати функцію", відповідно';
-				document.getElementById("aboutme8").innerHTML = "Скоро зима, осінь вже тут"
+				document.getElementById("aboutme8").innerHTML = "Скоро зима";
 				document.getElementById("about").innerHTML = '@ 2021 Зроблено <a href="#" class="link-primary">0x6k7</a>';
 				
 				document.getElementById("weathername").innerHTML = "Погода <i class='bi bi-cloud'></i>";
 				document.getElementById("historyname").innerHTML = "Історія <i class='bi bi-clock-history'></i>";
+				document.getElementById("projectsname").innerHTML = "Проекти <i class='bi bi-cloud-download'></i>";
 				document.getElementById("changelogname").innerHTML = "Журнал змін <i class='bi bi-newspaper'></i>";
 				document.getElementById("navbarDarkDropdownMenuLink").innerHTML = "Контакти <i class='bi bi-question-circle-fill'></i>";
 				
@@ -349,7 +278,6 @@
 				document.getElementById("redditname").innerHTML = "Реддіт <i class='fa fa-reddit'></i>";
 				document.getElementById("telegramname").innerHTML = "Телеграм <i class='bi bi-telegram'></i>";
 				
-				document.getElementById("wintername").innerHTML = "Зима 2021 & До 2022 <i class='bi bi-snow'></i> ";
 				document.getElementById("weatherforecast").innerHTML = "Прогноз погоди:";
 				document.getElementById("historyprojects").innerHTML = "Історія проектів";
 				
@@ -381,25 +309,27 @@
 				document.getElementById("theworstdayforstudents").innerHTML = "1 вересня - Найгірший день для студентів";
 				document.getElementById("programmersday").innerHTML = "13 вересня - День программіста";
 				document.getElementById("constitutiondayofus").innerHTML = "17 вересня - День конституції США";
+				
+				document.getElementById("eventmonth9").innerHTML = "Жовтень 2021: ";
+				document.getElementById("ukrainedefender").innerHTML = "14 жовтня - День захисника України";
+				document.getElementById("bosssday").innerHTML = "16 жовтня - День начальника";
+				document.getElementById("halloweenday").innerHTML = "31 жовтня - День Хеллоуїна";
+				document.getElementById("eventmonth10").innerHTML = "Листопад 2021: ";
 
 				document.getElementById("closebutton").innerHTML = "Закрити";
 				
+				document.getElementById("settingsid").innerHTML = 'Налаштування <i class="bi bi-gear-fill"></i>';
 				document.getElementById("bellicon").innerHTML = '<i class="bi bi-bell"></i> Події';
 				document.getElementById("musicplayericon").innerHTML = '<i class="bi bi-file-earmark-music"></i> Музичний програвач';
 				document.getElementById("exampleModalLabel2").innerHTML = 'Музичний програвач';
-				document.getElementById("borderavatar").innerHTML = '<i class="bi bi-border-all"></i> Добавити межі аватарки';
-				document.getElementById("deleteborder").innerHTML = '<i class="bi bi-x-circle"></i> Видалити межі аватарки';
-				document.getElementById("showicon").innerHTML = '<i class="bi bi-camera-fill"></i> Показати значок загрузки';
+				document.getElementById("abouts").innerHTML = '<i class="bi bi-question-square"></i> Про сайт';
 				document.getElementById("suggestafeature").innerHTML = '<i class="bi bi-pencil-square"></i> Запропонувати функцію';
-				document.getElementById("hideicon").innerHTML = '<i class="bi bi-camera"></i> Сховати значок загрузки';
-				document.getElementById("hideprofile").innerHTML = '<i class="bi bi-person-x"></i> Сховати все';
+				document.getElementById("refreshpage").innerHTML = '<i class="bi bi-x-octagon"></i> Відмінити зміни';
 				
-				document.getElementById("buildinfo").innerHTML = '<i class="bi bi-clock"></i> Версія сайту: 01.09.2021';
-				document.getElementById("internalversion").innerHTML = '<i class="bi bi-code-slash"></i> Внутрішня версія: #9s3kxl';
+				document.getElementById("buildinfo").innerHTML = '<i class="bi bi-clock"></i> Версія сайту: 13.09.2021';
+				document.getElementById("internalversion").innerHTML = '<i class="bi bi-code-slash"></i> Внутрішня версія: #h4x9a';
 
-				document.getElementById("changelogcaption").innerHTML = "Журнал змін сайту";
-				document.getElementById("alertdanger").innerHTML = '<i class="bi bi-x-circle-fill"></i> З 28 квітня 2021, TrashLauncher більше не підтримується. Дивіться секцію Історія для більшої інформації <button type="button" class="btn-close" id="buttonclose" data-bs-dismiss="alert" aria-label="Close"></button>';
-		
+				document.getElementById("changelogcaption").innerHTML = "Журнал змін сайту";		
 				document.getElementById("warning").innerHTML = '<i class="bi bi-exclamation-triangle-fill"></i> Цей розділ не був повністю перекладений на Українську <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
 		
 				document.getElementById("changelogname1").innerHTML = '30.01.2021';
@@ -412,6 +342,7 @@
 				document.getElementById("changelogname8").innerHTML = '18.05.2021';
 				document.getElementById("changelogname9").innerHTML = '29.06.2021';
 				document.getElementById("changelogname10").innerHTML = '01.09.2021';
+				document.getElementById("changelogname11").innerHTML = '13.09.2021';
 		
 				document.getElementById("githubchange").innerHTML = 'Сайт тепер на GitHub';
 				document.getElementById("changelogchange").innerHTML = 'Додано ("Про сайт", "Історія", "TrashLauncher", "Журнал змін", "Контакти")';
@@ -477,6 +408,27 @@
 				document.getElementById("changelogchangept44").innerHTML = 'Незначні покращення';
 				document.getElementById("changelogchangept45").innerHTML = 'Bootstrap 4.5.3 більше не використовується';
 				document.getElementById("changelogchangept46").innerHTML = 'Виправлена неполадка в секції "Прогноз погоди", де віджет не відображався';
+				
+				document.getElementById("changelogchangept47").innerHTML = 'Розділ "Події" був оновлений';
+				document.getElementById("changelogchangept48").innerHTML = 'Незначні покращення';
+				document.getElementById("changelogchangept49").innerHTML = 'Більш адаптований сайт для екранів Full HD';
+				document.getElementById("changelogchangept50").innerHTML = 'Видалення зайвого коду';
+				document.getElementById("changelogchangept51").innerHTML = 'Видалена секція "TrashLauncher" і добавлена нова секція "Projects"';
+				document.getElementById("changelogchangept52").innerHTML = 'Адаптований "підвал" сайту для різних пристроїв';
+				
+				document.getElementById("bsodcrashtitle").innerHTML = 'BSODCrash 1.1 (Тільки в цілях освіти)';
+				document.getElementById("bsodcrashtext").innerHTML = 'Програма, що призводить падіння системи використовуючи незадокументовані функції в ядрі Windows';
+				document.getElementById("bsodcrashtext2").innerHTML = 'Протестовано на: Windows 7, Windows 10';
+				document.getElementById("bsodcrashtext3").innerHTML = 'Ліцензія: GNU GPL v3';
+				
+				document.getElementById("detectprogram").innerHTML = 'Програма що виявляє віртуальну машину і пісочницю';
+				document.getElementById("detectprogram2").innerHTML = 'Протестовано на: Windows 7, Windows 8.1';
+				document.getElementById("detectprogram3").innerHTML = 'Ліцензія: GNU GPL v3';
+
+				document.getElementById("bsodcrashdownload").innerHTML = 'Завантажити';
+				document.getElementById("detectdownload").innerHTML = 'Завантажити';
+				
+				document.getElementById("time").style.display = 'none';
 
 				document.getElementById("closebutton2").innerHTML = 'Закрити';
 				
@@ -501,7 +453,13 @@
 
 <script>
 	$("#abouts").on("click", function() {
-		alert("As of September 1, this site uses the following: \nBootstrap: 5.0.0beta1\nBootstrap CSS: 4.5.3 and 5.0.0beta1\nJQuery: 3.5.1\nFont Awesome: 4.7.0\nPopper: 2.5.4");
+		if(document.getElementById("aboutsite").innerHTML == "Про сайт") {
+			alert("Станом на 13 вересеня цей сайт використовує наступне: \nBootstrap: 5.0.0beta1\nBootstrap CSS: 4.5.3 and 5.0.0beta1\nJQuery: 3.5.1\nFont Awesome: 4.7.0\nPopper: 2.5.4");
+		}
+		
+		else {
+			alert("As of September 13, this site uses the following: \nBootstrap: 5.0.0beta1\nBootstrap CSS: 4.5.3 and 5.0.0beta1\nJQuery: 3.5.1\nFont Awesome: 4.7.0\nPopper: 2.5.4");
+		}
 	});
 </script>
 
@@ -544,6 +502,14 @@
 			<li><div id="programmersday">September 13 - <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Programmers' Day?" data-bs-content="This is the 256th day of the year">Programmers' Day</a></div></li>
 			<li><div id="constitutiondayofus">September 17 - <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Constituion Day(US)" data-bs-content="An important day for a native speaker in the USA">Constituion Day(US)</a></div></li>
 		</ul>
+		<b><div class="text-left" id="eventmonth9">October 2021: </div></b>
+		<ul>
+			<li><div id="ukrainedefender">October 14 - <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Defender of Ukraine Day?" data-bs-content="A day off in Ukraine">Defender of Ukraine</a></div></li>
+			<li><div id="bosssday">October 16 - <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Boss's Day?" data-bs-content="No comments">Boss's Day</a></div></li>
+			<li><div id="halloweenday">October 31 - <a href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="focus" title="What is Halloween Day?" data-bs-content="A day that is celebrated in the U.S.">Halloween Day</a></div></li>
+		</ul>
+		<b><div class="text-left" id="eventmonth10">November 2021: </div></b>
+
 	</div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" id="closebutton" data-bs-dismiss="modal">Close</button>
@@ -591,12 +557,12 @@
 	<p class="wth font-weight-light" id="aboutme">Hi there, I'm Vitaliy, a-16-year-old student</p>
 	<p class="wth font-weight-light" id="aboutme2">I decided to create this website because I was wondering what kind of site I could create</p>
 
-	<p class="wth font-weight-light" id="aboutme3">There will be a history of projects, which are no longer supported</p>
-	<p class="wth font-weight-light" id="aboutme4">You'll see the plans for "Winter 2021 & Pre-2022" in December 2021, by this time this section will be available</p></p>
+	<p class="wth font-weight-light" id="aboutme3">There will be a history of projects, most of which are not supported</p>
+	<p class="wth font-weight-light" id="aboutme4">There's a weather forecast</p>
 	<p class="wth font-weight-light" id="aboutme5">There's a changelog where you can see the changes on the site</p>
 	<p class="wth font-weight-light" id="aboutme6">You can change the site language</p>
 	<p class="wth font-weight-light" id="aboutme7">If you have a problem and/or suggestion, you can send me a private message in the "Contacts" section, or you can report a bug/suggestion through the "Report a bug", "Suggest a feature" button, respectively</p>
-	<p class="wth font-weight-light" id="aboutme8">Winter is coming soon, autumn is here</p>
+	<p class="wth font-weight-light" id="aboutme8">Winter is coming</p>
 
 	<p class="wth font-weight-light" id="date"></p>
 
@@ -649,15 +615,18 @@
 </div>
 
 <div class="weather text-center" id="weatherform">
+<div class="container-fluid">
 	<h2 class="wth font-weight-light" id="weatherforecast">Weather forecast: </h2>
-	<a class="weatherwidget-io" href="https://forecast7.com/en/49d5525d59/ternopil/" data-label_1="TERNOPIL" data-label_2="WEATHER" data-font="Ubuntu" data-theme="dark" >TERNOPIL WEATHER</a>
-	
+	<a class="weatherwidget-io" id="weatherternopil" href="https://forecast7.com/en/49d5525d59/ternopil/" data-label_1="TERNOPIL" data-label_2="WEATHER" data-theme="dark" >TERNOPIL WEATHER</a>
+
 	<script>
 		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
 	</script>
 </div>
+</div>
 
 <div class="projects" id="projectsform">
+<div class="container-fluid">
 	<br>
 	<h2 class="wth font-weight-light" id="historyprojects">History of projects</h2>
 	<br>
@@ -669,7 +638,7 @@
 			<div class="card card-body">
 			Q: Why hasn't it been translated yet?
 			<br>
-			A: Because of the developer's laziness</li>
+			A: Because of the developer's laziness
 			<br>
 			Q: Why there's no Feb update?
 			<br>
@@ -708,7 +677,7 @@
 		<br>In the summer of 2018, I created the first decompiler <code>VDecompiler</code> that could decompile basic sections (Events, Config, Forms, Loader(Not always))
 		<br>In the autumn of 2018, I created another decompiler <code>VDecompiler 2.0</code>, that decompiled some basic Protectors, except for specific (E.g when someone creats a custom protection with custom sections)
 		<br>In the middle of autumn 2018, I created <code>VDecompiler 2.0</code> and I learned a lot about DevelStudio Protection (Loader: A seperate file/section of program where the events/configs/forms load, and knowing how and where they decode you can get the code, How to get code of program without a decompiler or injector: Hook does a lot, How the injector gets code: While injected program is running, it replaces php5ts.dll original to php5ts.dll injected, after this the injected dll begins to hook as much as possible code, but there's a possibility to protect the program (e.g check the checksum of dll)
-		<br>In October 2018, I created "obfuscator" program that was replacing strings to "IIIIIII", or "OOOOOOOO", "eval(base64_decode(", such an useless obfuscator, though, it can be cracked in a few minutes or even less
+		<br>In October 2018, I created "obfuscator" program that was replacing strings to "IIIIIII", or "OOOOOOOO", "eval(base64_decode(", such a useless obfuscator, though, it can be cracked in a few minutes or even less
 		<br>At the end of 2018, I created "useless" the program that was used to test something (I can't recall)
 		<br>It was the end of 2018, I was thinking what to create, and I came up with an idea to create <code>TrashLauncher 2.0</code> (i still didn't know how to write a program completely and took a lot from the internet)
 		
@@ -902,8 +871,10 @@
 </div>
 </div>
 </div>
+</div>
 
 <div class="changelogshit" id="changelogform"> 
+<div class="container-fluid">
 	<br>
 	<h2 class="wth font-weight-light" id="changelogcaption">Changelog of the site. <a href="https://github.com/0x6k7/0x6k7.github.io/commits/main">More details.</a> </h2>
 	<br>	
@@ -1058,7 +1029,7 @@
     <div id="changelogTen" class="accordion-collapse collapse" aria-labelledby="changelogHeadingTen" data-bs-parent="#changelogExample">
       <div class="accordion-body">
 		<div id="changelogchangept40">Events section has been updated</div>
-		<div id="changelogchangept41">Winter & Pre-2021 will be available to all in December 2021</div>
+		<div id="changelogchangept41">Winter & Pre-2021 will be available to all in December 2021(No longer)</div>
 		<div id="changelogchangept42">Fixed a bug with the "Changelog" section</div>
 		<div id="changelogchangept43">Updated information in the "History" section</div>
 		<div id="changelogchangept44">Minor improvements</div>
@@ -1066,22 +1037,67 @@
 		<div id="changelogchangept46">Fixed bug with the "Weather forecast", when the widget wasn't displayed</div>
 	  </div>
     </div>
+	
+	<h2 class="accordion-header" id="changelogHeadingEleven">
+      <button class="accordion-button collapsed" id="changelogname11" type="button" data-bs-toggle="collapse" data-bs-target="#changelogEleven" aria-expanded="false" aria-controls="#changelogExample">
+		9/13/2021
+      </button>
+    </h2>
+    <div id="changelogEleven" class="accordion-collapse collapse" aria-labelledby="changelogHeadingEleven" data-bs-parent="#changelogExample">
+      <div class="accordion-body">
+		<div id="changelogchangept47">Events section has been updated</div>
+		<div id="changelogchangept48">Minor improvements</div>
+		<div id="changelogchangept49">A more adapted site for Full HD screens</div>
+		<div id="changelogchangept50">Code cleanup</div>
+		<div id="changelogchangept51">Removed the "TrashLauncher" section and added a new "Projects" section</div>
+		<div id="changelogchangept52">Adapted the footer "Made by 0x6k7" on different devices</div>
+	  </div>
+    </div>
   </div>
 </div>
   </div>
 </div>
 
-<div class="trashlaunchershit" id="trashlauncherform"> 
+<div class="projectsshit" id="cprojectsform"> 
 	<br>
-	<div class="container">
-	<div class="alert alert-danger alert-dismissible fade show" id="alertdanger" role="alert">
-		<i class="bi bi-x-circle-fill"></i> As of April 28, 2021, TrashLauncher no longer supported. For more information, see the <a href="#" id="historylinken">History</a> section
-		<button type="button" class="btn-close" id="buttonclose" data-bs-dismiss="alert" aria-label="Close"></button>
+	<div class="card-group">
+		<div class="row">
+		<div class="col-sm-6">
+	<div class="card bg-dark" id="bsodcrashcard" style="position: relative; width: 18rem; margin-left: 11px; top: 1px;">
+		<div class="card-body bg-dark">
+		<h5 class="card-title text-white" id="bsodcrashtitle">BSODCrash 1.1 (For education purposes only)</h5>
+		<p class="card-text text-white" id="bsodcrashtext">A program that causes the system to crash using undocumented functions in the windows kernel</p>
+		<p class="card-text text-white" id="bsodcrashtext2">Tested on: Windows 7, Windows 10</p>
+		<p class="card-text text-white" id="bsodcrashtext3">License: GNU GPL v3</p>
+		<a href="https://github.com/0x6k7/BSODCrash/releases" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary" id="bsodcrashdownload" style="width: 250px;">Download</a>
+	</div>
+	</div>
+  </div>
+  </div>
+	
+	<div class="row">
+	<div class="col-sm-6">
+	<div class="container-fluid">
+	<div class="card border-dark bg-dark" id="detectcard" style="width: 18rem; top: 2px;">
+		<div class="card-body bg-dark">
+		<h5 class="card-title text-white">Detect 1.1</h5>
+		<p class="card-text text-white" id="detectprogram">A program that detects Virtual Manchine and Sandbox</p>
+		<p class="card-text text-white" id="detectprogram2">Tested on: Windows 7, Windows 8.1</p>
+		<p class="card-text text-white" id="detectprogram3">License: GNU GPL v3</p>
+		<a href="https://github.com/0x6k7/Detect/releases" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary" id="detectdownload" style="width: 250px;">Download</a>
+	</div>
+	</div>
+  </div>
+  </div>
+  </div>
+	
+</div>
+	
 	</div>
 
 	<script>
 		$("#historylinken").on("click", function () {
-			document.getElementById("trashlauncherform").style.display = "none";
+			document.getElementById("cprojectsform").style.display = "none";
 			document.getElementById("projectsform").style.display = "block";
 		});
 	</script>
@@ -1108,6 +1124,6 @@
 		@ 2021 Made by <a href="#" contenteditable="true" class="link-primary">0x6k7</a>		
 		</div>
 	</div>
-<footer> 	
+</footer> 	
   </body>
 </html>
